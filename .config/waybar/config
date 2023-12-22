@@ -1,0 +1,130 @@
+[
+	{
+		"layer": "top",
+		"output": [
+			"DP-2"
+		],
+		"modules-left": [
+			"sway/workspaces"
+		],
+		"modules-center": [
+			"sway/window"
+		],
+		"modules-right": [
+			"cpu",
+			"memory",
+			"temperature",
+			"custom/netspeed",
+			"pulseaudio",
+			"tray",
+			"clock"
+		],
+		"sway/workspaces": {
+			"disable-click": false,
+			"disable-scroll": true,
+			"all-outputs": true,
+			"format": "{name}{icon}",
+			"warp-on-scroll": false,
+			"persistent-workspaces": {
+				"1": [
+					"DP-2"
+				],
+				"2": [
+					"DP-2"
+				],
+				"3": [
+					"DP-2"
+				],
+				"4": [
+					"DP-2"
+				],
+				"5": [
+					"DP-2"
+				],
+				"6": [
+					"DP-2"
+				],
+				"7": [
+					"DP-2"
+				],
+				"8": [
+					"DP-2"
+				],
+				"9": [
+					"DP-2"
+				],
+				"10": [
+					"DP-2"
+				]
+			},
+			"format-icons": {
+				"1": "\ue6ac",
+				"2": "\udb80\udea4",
+				"3": "\udb80\uddda",
+				"4": "\udb82\udeb6",
+				"5": "\udb80\ude39",
+				"6": "\udb82\ude1e",
+				"7": "\uf489",
+				"8": "\udb81\udcb1",
+				"9": "\udb84\udeca",
+				"10": "\udb80\udc3b",
+				"default": "\udb86\udd78"
+			}
+		},
+		"sway/window": {
+			"format": "{title}",
+			"max-length": 60,
+			"all-outputs": true
+		},
+		"cpu": {
+			"tooltip": true,
+			"format": "\uf4bc {usage}%",
+			"interval": 1
+		},
+		"memory": {
+			"tooltip": true,
+			"format": "\ue266 {}%",
+			"interval": 1
+		},
+		"temperature": {
+			"thermal-zone": 0,
+			"hwmon-path": [
+				"/sys/class/hwmon/hwmon2/temp1_input"
+			],
+			"format": "\udb81\udd0f{temperatureC}\udb81\udd04",
+			"interval": 1
+		},
+		"custom/netspeed": {
+			"exec": "~/.config/waybar/scripts/netspeed.sh",
+			"restart-interval": 0,
+			"format": "{}",
+			"tooltip": true,
+			"return-type": "json"
+		},
+		"pulseaudio": {
+			"on-click": "pavucontrol",
+			"on-click-middle": "amixer -D pulse set Master 1+ toggle",
+			"tooltip": true,
+			"tooltip-format": "{volume}%",
+			"scroll-step": 5,
+			"format": "{icon} {volume}%",
+			"format-muted": "\udb81\udf5f {volume}%",
+			"format-icons": {
+				"default": [
+					"\udb81\udd7f",
+					"\udb81\udd80",
+					"\udb81\udd7e"
+				]
+			}
+		},
+		"tray": {
+			"icon-size": 18,
+			"spacing": 8,
+			"show-passive-items": true
+		},
+		"clock": {
+			"format": "\uf017 {:%H:%M %d-%m}",
+			"tooltip-format": "{calendar}"
+		}
+	}
+]

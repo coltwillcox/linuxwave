@@ -1,0 +1,180 @@
+@define-color border #9963ff;
+@define-color background rgba(22, 25, 37, 1);
+@define-color font1 #f222ff;
+@define-color font2 #ffd318;
+@define-color shadow #fc199a;
+
+* {
+	border: none;
+	border-radius: 0;
+	font-family: Victor Mono;
+	font-size: 18px;
+	font-weight: bold;
+	text-shadow: 0 0 5px @shadow;
+}
+
+#workspaces {
+	margin-top: 8px;
+	margin-left: 12px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: #4d4d4d;
+	background: @background;
+	border: 2px solid @border;
+}
+
+#workspaces button {
+	transition: none;
+	color: @font1;
+	background: transparent;
+	font-size: 16px;
+	text-shadow: 0 0 5px @shadow;
+}
+
+#workspaces button.focused {
+	color: @font2;
+	border-radius: 26px;
+	background: rgba(12, 14, 20, 1);
+	border: 2px solid @border;
+}
+
+#workspaces button:hover {
+	transition: none;
+	box-shadow: inherit;
+	text-shadow: inherit;
+	color: #ff79c6;
+}
+
+window#waybar {
+	background: transparent;
+}
+
+window#waybar.hidden {
+	opacity: 0.2;
+}
+
+window#waybar.empty #window {
+	background: none;
+	border: none;
+}
+
+#window {
+	margin-top: 8px;
+	margin-top: 8px;
+	margin-left: 8px;
+	padding: 6px 16px 6px 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: @font1;
+	background: @background;
+	border: 2px solid @border;
+}
+
+#cpu {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding: 6px 16px 6px 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: @font1;
+	background: @background;
+	border: 2px solid @border;
+}
+
+#memory {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding: 6px 16px 6px 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: @font1;
+	background: @background;
+	border: 2px solid @border;
+}
+
+#temperature {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding: 6px 16px 6px 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: @font1;
+	background: @background;
+	border: 2px solid @border;
+}
+
+#custom-netspeed {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding: 6px 16px 6px 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: @font1;
+	background: @background;
+	border: 2px solid @border;
+}
+
+#pulseaudio {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding: 6px 16px 6px 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: @font1;
+	background: @background;
+	border: 2px solid @border;
+}
+
+#tray {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding: 6px 16px 6px 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: @font1;
+	background: @background;
+	border: 2px solid @border;
+}
+
+#tray menu {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding: 6px 16px 6px 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: @font1;
+	background: @background;
+	border: 2px solid @border;
+}
+
+#clock {
+	margin-top: 8px;
+	margin-left: 8px;
+	margin-right: 12px;
+	padding: 6px 16px 6px 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: @font2;
+	background: @background;
+	border: 2px solid @border;
+}
+
+tooltip {
+	background: @background;
+	border: 2px solid @border;
+	border-radius: 26px;
+}
+
+tooltip label {
+	color: @font2;
+}
