@@ -1,0 +1,2 @@
+# linuxwave
+Synthwave configs
