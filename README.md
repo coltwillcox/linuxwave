@@ -1,13 +1,13 @@
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 ![#f222ff](https://placehold.co/800x150/161925/f222ff.png?text=linuxwave&font=raleway)
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
-# linuxwave <sup>.dotfiles for Wayland/Sway desktop</sup>
-### Sway <sup>.config/sway</sup>
+# linuxwave <sup>.dotfiles for Wayland/SwayFX desktop</sup>
+### SwayFX <sup>.config/sway</sup>
 Info:
 * Will use swayidle to execute ```~/.config/kitty/scripts/idling.sh``` after 300 seconds if inactivity.
 
 Links: 
-* Sway: https://swaywm.org/
+* SwayFX: https://github.com/WillPower3309/swayfx
 * swayidle: https://github.com/swaywm/swayidle
 * Candy icons: https://github.com/EliverLara/candy-icons
 
@@ -40,7 +40,7 @@ Links:
 * Speedometer: https://excess.org/speedometer/
 
 Edit:
-* See Sway edit.
+* See SwayFX edit.
 #
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 ### Wofi <sup>.config/wofi</sup>
@@ -51,7 +51,7 @@ Links:
 * Wofi: https://sr.ht/~scoopta/wofi/
 
 Edit:
-* See Sway edit.
+* See SwayFX edit.
 #
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 ### Mako <sup>.config/mako</sup>
