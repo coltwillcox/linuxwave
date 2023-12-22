@@ -9,6 +9,7 @@ Info:
 Links: 
 * Sway: https://swaywm.org/
 * swayidle: https://github.com/swaywm/swayidle
+* Candy icons: https://github.com/EliverLara/candy-icons
 
 Edit:
 * File ```./config/sway/config.d/default```, bellow line ```exec swayidle -w\```, add line ```timeout 300 '~/.config/kitty/scripts/idling.sh'\```
@@ -51,4 +52,15 @@ Links:
 
 Edit:
 * See Sway edit.
+#
+![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
+### Mako <sup>.config/mako</sup>
+Info:
+* Mako theme.
+
+Links: 
+* Mako: https://wayland.emersion.fr/mako/
+
+Edit:
+* Optionally ```icon-path``` line in ```./config/mako/config```
 #
