@@ -2,7 +2,7 @@
 ![#f222ff](https://placehold.co/800x150/161925/f222ff.png?text=linuxwave&font=raleway)
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 # linuxwave <sup>.dotfiles for Wayland/SwayFX desktop</sup>
-### SwayFX <sup>.config/sway</sup>
+### SwayFX <sup>.config/sway/</sup>
 Info:
 * Will use swayidle to execute ```~/.config/kitty/scripts/idling.sh``` after 300 seconds if inactivity.
 
@@ -16,7 +16,7 @@ Edit:
 * File ```./config/sway/config```, add lines ```bindsym Mod1+Tab exec ~/.config/wofi/scripts/windows.py``` and ```bindsym $mod+Shift+e exec ~/.config/wofi/scripts/power.py```. If needed, disable those bindings elsewhere.
 #
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
-### Waybar <sup>.config/waybar</sup>
+### Waybar <sup>.config/waybar/</sup>
 Info:
 * Waybar theme that displays workspaces, current window title, cpu, memory, temperature, network, volume, tray and clock.
 
@@ -29,7 +29,7 @@ Edit:
 * File ```.config/waybar/config```, change "DP-2" to correct monitor/output. Find output IDs with command: ```swaymsg -t get_outputs | jq -r 'sort_by(.rect.x) | .[].name'```
 #
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
-### Kitty <sup>.config/kitty</sup>
+### Kitty <sup>.config/kitty/</sup>
 Info:
 * Kitty theme with additional scripts that will run two "hacky" sessions on workspace 10.
 * Sessions are invoked from ```.config/sway/config.d/default```. One will display speedometer statistics, second will display random *.java, *.c o *.cpp file fom /usr folder.
@@ -43,7 +43,7 @@ Edit:
 * See SwayFX edit.
 #
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
-### Wofi <sup>.config/wofi</sup>
+### Wofi <sup>.config/wofi/</sup>
 Info:
 * Wofi theme with additional python scripts: ```power.py``` for power menu, ```windows.py``` as Alt-Tab replacement.
 
@@ -54,7 +54,7 @@ Edit:
 * See SwayFX edit.
 #
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
-### Mako <sup>.config/mako</sup>
+### Mako <sup>.config/mako/</sup>
 Info:
 * Mako theme.
 
@@ -63,4 +63,15 @@ Links:
 
 Edit:
 * Optionally ```icon-path``` line in ```./config/mako/config```
+#
+![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
+### Powerlevel10k <sup>.p10k.zsh</sup>
+Info:
+* Powerlevel10k theme.
+
+Links: 
+* Powerlevel10k: https://github.com/romkatv/powerlevel10k
+
+Edit:
+* None
 #
