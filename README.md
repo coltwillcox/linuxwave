@@ -2,6 +2,9 @@
 ![#f222ff](https://placehold.co/800x150/161925/f222ff.png?text=linuxwave&font=raleway)
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 # linuxwave <sup>.dotfiles for Wayland/SwayFX desktop</sup>
+<img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/screenshot.png" width="800">
+
+![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 ### SwayFX <sup>.config/sway/</sup>
 Info:
 * Will use swayidle to execute ```~/.config/kitty/scripts/idling.sh``` after 300 seconds if inactivity.
@@ -14,7 +17,7 @@ Links:
 Edit:
 * File ```./config/sway/config.d/default```, bellow line ```exec swayidle -w\```, add line ```timeout 300 '~/.config/kitty/scripts/idling.sh'\```
 * File ```./config/sway/config```, add lines ```bindsym Mod1+Tab exec ~/.config/wofi/scripts/windows.py``` and ```bindsym $mod+Shift+e exec ~/.config/wofi/scripts/power.py```. If needed, disable those bindings elsewhere.
-#
+
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 ### Waybar <sup>.config/waybar/</sup>
 Info:
@@ -27,7 +30,7 @@ Links:
 
 Edit:
 * File ```.config/waybar/config```, change "DP-2" to correct monitor/output. Find output IDs with command: ```swaymsg -t get_outputs | jq -r 'sort_by(.rect.x) | .[].name'```
-#
+
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 ### Kitty <sup>.config/kitty/</sup>
 Info:
@@ -41,7 +44,7 @@ Links:
 
 Edit:
 * See SwayFX edit.
-#
+
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 ### Wofi <sup>.config/wofi/</sup>
 Info:
@@ -52,7 +55,7 @@ Links:
 
 Edit:
 * See SwayFX edit.
-#
+
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 ### Mako <sup>.config/mako/</sup>
 Info:
@@ -63,7 +66,7 @@ Links:
 
 Edit:
 * Optionally ```icon-path``` line in ```./config/mako/config```
-#
+
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 ### Powerlevel10k <sup>.p10k.zsh</sup>
 Info:
@@ -74,4 +77,5 @@ Links:
 
 Edit:
 * None
-#
+
+![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
