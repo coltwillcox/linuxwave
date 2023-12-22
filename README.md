@@ -13,6 +13,7 @@ Links:
 * SwayFX: https://github.com/WillPower3309/swayfx
 * swayidle: https://github.com/swaywm/swayidle
 * Candy icons: https://github.com/EliverLara/candy-icons
+* VS Code synthwave: https://marketplace.visualstudio.com/items?itemName=coltwillcox.synthwave-x-fluoromachine-contrast
 
 Edit:
 * File ```./config/sway/config.d/default```, bellow line ```exec swayidle -w\```, add line ```timeout 300 '~/.config/kitty/scripts/idling.sh'\```
