@@ -1,4 +1,5 @@
 #!/usr/bin/zsh
+
 setopt sh_word_split
 
 max_download=419430400 # ~400 Mbps
@@ -12,12 +13,12 @@ array=($output)
 download=$(numfmt --from=iec --to-unit=1 $array[3])
 upload=$(numfmt --from=iec --to-unit=1 $array[4])
 
-download_percentage=$((100*$download/$max_download))
-if [ $download_percentage -lt 0 ];   then download_percentage=0; fi
+download_percentage=$((100 * $download / $max_download))
+if [ $download_percentage -lt 0 ]; then download_percentage=0; fi
 if [ $download_percentage -gt 100 ]; then download_percentage=100; fi
-upload_percentage=$((100*$upload/$max_upload))
-if [ $upload_percentage -lt 0 ];     then upload_percentage=0; fi
-if [ $upload_percentage -gt 100 ];   then upload_percentage=100; fi
+upload_percentage=$((100 * $upload / $max_upload))
+if [ $upload_percentage -lt 0 ]; then upload_percentage=0; fi
+if [ $upload_percentage -gt 100 ]; then upload_percentage=100; fi
 
 text="$download_icon $download_percentage%$upload_percentage $upload_icon"
 tooltip="$download_icon $array[3] $upload_icon $array[4]"

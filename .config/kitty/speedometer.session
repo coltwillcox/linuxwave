@@ -1,0 +1,2 @@
+cd ~/.config/kitty/scripts
+launch ./speedo.sh
