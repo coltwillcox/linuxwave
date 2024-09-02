@@ -1,0 +1,16 @@
+@-moz-document url("about:newtab") {
+	html {
+		height: 100%;
+	}
+
+	body {
+		background-color: #000000 !important;
+		height: 100%;
+	}
+}
+
+@-moz-document url("about:blank") {
+	body {
+		background-color: #000000 !important;
+	}
+}
