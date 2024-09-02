@@ -80,3 +80,14 @@ Edit:
 * None
 
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
+### Zen Browser <sup>.zen/profile/chrome/</sup>
+Info:
+* Zen Browser CSS customizations.
+
+Links: 
+* Zen Browser: https://zen-browser.app
+
+Edit:
+* If using non-expanded tabs, comment out ```Non expanded tabs only``` parts
+
+![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
