@@ -141,6 +141,11 @@ toolbaritem .unified-extensions-item-action-button {
 	padding-right: 0px !important;
 }
 
+#tabs-newtab-button {
+	width: 100% !important;
+	margin-top: 0px !important;
+}
+
 /* Address bar */
 #urlbar {
 	border: 1px #743ad5 solid !important;
@@ -298,6 +303,49 @@ toolbaritem .unified-extensions-item-action-button {
 
 #tabbrowser-tabpanels[zen-split-view='true'] {
 	flex-direction: column !important;
+}
+
+/* Find bar */
+findbar {
+	background: #161925 !important;
+	border-top: 1px #743ad5 solid !important;
+	padding-bottom: 8px !important;
+	padding-top: 8px !important;
+}
+
+findbar toolbarbutton {
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+}
+
+.findbar-container {
+	height: inherit !important;
+}
+
+.findbar-textbox {
+	border: 1px solid #743ad5 !important;
+	height: 32px !important;
+	background: #000000 !important;
+}
+
+.findbar-find-previous,
+.findbar-find-next,
+.findbar-closebutton {
+	align-items: center !important;
+	fill: #f222ff !important;
+}
+
+.findbar-find-previous image,
+.findbar-find-next image,
+.findbar-closebutton image {
+	width: 16px p !important;
+	height: 16px p !important;
+}
+
+.findbar-find-previous label,
+.findbar-find-next label,
+.findbar-closebutton label {
+	display: none !important;
 }
 
 /* Non expanded tabs only, disable for expanded */
