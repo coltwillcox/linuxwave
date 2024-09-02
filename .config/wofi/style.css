@@ -1,73 +1,68 @@
 @define-color base1 #0c0e14;
 @define-color base2 #40455;
 @define-color font1 #f222ff;
-@define-color font2 #ffd318;
 @define-color border #9963ff;
 @define-color shadow #fc199a;
 @define-color background #161925;
+@define-color backgroundselected #2c3345;
 
 * {
+	all: unset;
 	border: none;
 	border-radius: 0;
 	font-family: Victor Mono SemiBold;
 	font-size: 18px;
-	min-height: 24px;
+	min-height: 32px;
 	font-weight: bold;
+	outline: none;
 }
 
 window {
-	margin-top: 8px;
-	margin-left: 8px;
-	padding-left: 16px;
-	padding-right: 16px;
-	margin-bottom: 0px;
-	border-radius: 26px;
-	transition: none;
+	border: 1px solid @border;
 	background: @background;
-	border: 2px solid @border;
 }
 
 #input {
-	margin-bottom: 16px;
-	padding: 3px 8px 3px 8px;
-	border-radius: 8px;
+	margin-bottom: 10px;
+	padding: 0px 8px 0px 8px;
 	border: 1px solid @border;
 	color: @font1;
 	background-color: @base1;
 }
 
 #inner-box {
-	background: @background;
+	border: 0px;
 }
 
 #outer-box {
-	margin: 6px;
-	padding: 16px;
+	padding: 10px;
 	background-color: @base2;
 }
 
 #text {
-	padding: 4px 4px 4px 16px;
+	padding: 0px 4px 0px 16px;
 	background-color: transparent;
 	color: @font1;
+	opacity: 0.5;
 }
 
 #img {
 	background-color: transparent;
+	padding-left: 10px;
 }
 
 #entry {
-	padding-left: 8px;
-	padding-right: 8px;
+	padding: 0px;
+	border: 1px solid transparent;
 }
 
 #entry:selected {
-	background-color: @base1;
-	border-radius: 8px;
-	border: 1px solid @border;
+	background-color: @backgroundselected;
 	text-shadow: 0 0 5px @shadow;
+	border: 1px solid @border;
 }
 
 #text:selected {
-	color: @font2;
+	color: @font1;
+	opacity: 1;
 }
