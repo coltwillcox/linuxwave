@@ -86,9 +86,19 @@ menuitem {
 .tabbrowser-tab {
 	border: 1px transparent solid !important;
 	--tab-min-width: 32px !important;
+	color: #f222ff !important;
+	text-shadow: none !important;
 }
 
-/* TODO */
+.tabbrowser-tab:is([multiselected='true'], [selected]) {
+	background-color: #000000 !important;
+	border-image: linear-gradient(to left, #743ad5, #f222ff, #743ad5) 1 !important;
+	border-width: 1px !important;
+	border-style: solid !important;
+	text-shadow: 0 0 5px #fc199a !important;
+	color: #ffd318 !important;
+}
+
 toolbarbutton {
 	--zen-sidebar-action-button-width: 32px !important;
 	height: var(--zen-sidebar-action-button-width) !important;
@@ -114,13 +124,6 @@ toolbaritem .unified-extensions-item-action-button {
 }
 
 .tabbrowser-tab:hover {
-	border-image: linear-gradient(to left, #743ad5, #f222ff, #743ad5) 1 !important;
-	border-width: 1px !important;
-	border-style: solid !important;
-}
-
-.tabbrowser-tab:is([multiselected='true'], [selected]) {
-	background-color: #000000 !important;
 	border-image: linear-gradient(to left, #743ad5, #f222ff, #743ad5) 1 !important;
 	border-width: 1px !important;
 	border-style: solid !important;
@@ -153,7 +156,7 @@ toolbaritem .unified-extensions-item-action-button {
 
 .urlbar-input {
 	background-color: transparent !important;
-	color: #ffffff !important;
+	color: #ffd318 !important;
 }
 
 #urlbar-background,
@@ -173,10 +176,39 @@ toolbaritem .unified-extensions-item-action-button {
 	border: 0px !important;
 }
 
+.urlbarView-title {
+	color: #ffd318 !important;
+}
+
+.urlbarView-title {
+	.urlbarView-row:not([selected]) & {
+		color: #f222ff !important;
+	}
+}
+
+.urlbarView-title {
+	.urlbarView-row:hover & {
+		color: #ffd318 !important;
+	}
+}
+
 .urlbarView-url {
 	.urlbarView-row:not([selected]) & {
-		color: #ffffff !important;
+		color: #f222ff !important;
 		opacity: 0.5 !important;
+	}
+}
+
+.urlbarView-url {
+	.urlbarView-row:is([selected]) & {
+		color: #ffd318 !important;
+		opacity: 0.5 !important;
+	}
+}
+
+.urlbarView-url {
+	.urlbarView-row:hover & {
+		color: #ffd318 !important;
 	}
 }
 
@@ -185,6 +217,7 @@ toolbaritem .unified-extensions-item-action-button {
 }
 
 .urlbarView-row {
+	height: 32px !important;
 	border: 1px transparent solid !important;
 	margin-left: 1px !important;
 	margin-right: 3px !important;
@@ -243,6 +276,10 @@ toolbaritem .unified-extensions-item-action-button {
 
 #identity-permission-box {
 	background: transparent !important;
+}
+
+#urlbar .search-panel-one-offs-header-label {
+	color: #f222ff !important;
 }
 
 /* Zen sidebar */
