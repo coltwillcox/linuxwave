@@ -50,17 +50,21 @@ Edit:
 
 Info:
 
--   Kitty theme with additional scripts that will run two "hacky" sessions on workspace 10.
--   Sessions are invoked from `.config/sway/config.d/default`. One will display speedometer statistics, second will display random _.java, _.c o \*.cpp file fom /usr folder.
+-   Kitty theme (with additional themes for full transparency and full opaqueness).
+
+Screens:
+
+-   Default (0.5) transparency:
+
+    <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-kitty-0.png" height="150">
 
 Links:
 
 -   Kitty: https://sw.kovidgoyal.net/kitty/
--   Speedometer: https://excess.org/speedometer/
 
 Edit:
 
--   See SwayFX edit.
+-   None.
 
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 
@@ -73,6 +77,7 @@ Info:
 Links:
 
 -   Wofi: https://sr.ht/~scoopta/wofi/
+
 
 Edit:
 
