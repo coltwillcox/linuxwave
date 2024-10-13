@@ -1,7 +1,7 @@
 hide_scroll=true
 show=drun
 width=25%
-lines=5
+lines=4
 line_wrap=word
 term=kitty
 allow_markup=true
@@ -18,3 +18,4 @@ location=center
 dynamic_lines=false
 single_click=true
 hide_search=true
+normal_window=true

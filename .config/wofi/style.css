@@ -1,7 +1,9 @@
 @define-color base1 #0c0e14;
 @define-color base2 #40455;
 @define-color font1 #f222ff;
-@define-color border #9963ff;
+@define-color font2 #ffd318;
+@define-color font3 #eeeeff;
+@define-color border #743ad5;
 @define-color shadow #fc199a;
 @define-color background #161925;
 @define-color backgroundselected #2c3345;
@@ -18,7 +20,6 @@
 }
 
 window {
-	border: 1px solid @border;
 	background: @background;
 }
 
@@ -26,7 +27,7 @@ window {
 	margin-bottom: 10px;
 	padding: 0px 8px 0px 8px;
 	border: 1px solid @border;
-	color: @font1;
+	color: @font3;
 	background-color: @base1;
 }
 
@@ -43,7 +44,6 @@ window {
 	padding: 0px 4px 0px 16px;
 	background-color: transparent;
 	color: @font1;
-	opacity: 0.5;
 }
 
 #img {
@@ -58,11 +58,10 @@ window {
 
 #entry:selected {
 	background-color: @backgroundselected;
-	text-shadow: 0 0 5px @shadow;
 	border: 1px solid @border;
 }
 
 #text:selected {
-	color: @font1;
-	opacity: 1;
+	color: @font2;
+	text-shadow: 0 0 5px @shadow;
 }

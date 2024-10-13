@@ -17,3 +17,4 @@ display_generic=true
 location=center
 dynamic_lines=false
 single_click=true
+normal_window=true

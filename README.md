@@ -72,16 +72,22 @@ Edit:
 
 Info:
 
--   Wofi theme with additional python scripts: `power.py` for power menu, `windows.py` as Alt-Tab replacement.
+-   Wofi theme with additional python script `power.py` for power menu.
+
+Screens:
+
+-   Applications and power menu:
+
+    <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-wofi-0.png" height="150"> <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-wofi-1.png" height="150">
 
 Links:
 
 -   Wofi: https://sr.ht/~scoopta/wofi/
 
-
 Edit:
 
--   See SwayFX edit.
+-	Change `-o DP-2` in `power.py` to correct display in use (find display info with `hyprctl monitors`).
+-   Optionally uncomment `Hibernate` lines in `power.py`.
 
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 
