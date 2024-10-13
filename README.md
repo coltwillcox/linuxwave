@@ -8,23 +8,37 @@
 
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 
-### SwayFX <sup>.config/sway/</sup>
+### Hyprland <sup>.config/hypr/</sup>
 
 Info:
 
--   Will use swayidle to execute `~/.config/kitty/scripts/idling.sh` after 300 seconds if inactivity.
+-   Will use hypridle to lock with `~/.config/hypr/scripts/lock-slow.sh` after 300 seconds of inactivity.
+-	Will use hyprlock to instantly lock with `~/.config/hypr/scripts/lock-fast.sh` on SUPER + L keypress.
+-	When screen is locked, asciiquarium will be run, and closed when unlocked.
+-	Hyprlock config will blur screen, except asciiquarium area and screen borders.
+-	Will use hyprpaper to set wallpaper.
+
+Screens:
+
+-   Hyprlock with asciiquarium:
+
+    <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-hyprlock-0.png" height="150">
 
 Links:
 
 -   Hyprland: https://github.com/hyprwm/Hyprland
--   swayidle: https://github.com/swaywm/swayidle
+-   Hyprlock: https://github.com/hyprwm/hyprlock
+-	Hypridle: https://github.com/hyprwm/hypridle
+-	Hyprpaper: https://github.com/hyprwm/hyprpaper
 -   Candy icons: https://github.com/EliverLara/candy-icons
+-	Asciiquarium: https://github.com/nothub/asciiquarium
 -   VS Code synthwave: https://marketplace.visualstudio.com/items?itemName=coltwillcox.synthwave-x-fluoromachine-contrast
 
 Edit:
 
--   File `./config/sway/config.d/default`, bellow line `exec swayidle -w\`, add line `timeout 300 '~/.config/kitty/scripts/idling.sh'\`
--   File `./config/sway/config`, add lines `bindsym Mod1+Tab exec ~/.config/wofi/scripts/windows.py` and `bindsym $mod+Shift+e exec ~/.config/wofi/scripts/power.py`. If needed, disable those bindings elsewhere.
+-   File `.config/hypr/hyprland`, change `DP-2` to correct monitor/output. Find output info with command: `hyprctl monitors'`.
+-   File `.config/hypr/hyprpaper`, change `DP-2` to correct monitor/output. Find output info with command: `hyprctl monitors'`.
+-   Files `.config/hypr/hyprlock` and `.config/hypr/hyprlock-slow`, change `DP-2` to correct monitor/output. Find output info with command: `hyprctl monitors'`.
 
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 
