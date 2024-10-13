@@ -3,20 +3,18 @@ background-color=#161925
 text-color=#ffd318
 width=350
 height=100
-padding=8
-margin=16
 progress-color=over #eceff480
 icon-path=/usr/share/icons/sweet-icons
 max-icon-size=40
 layer=overlay
 format=<b>%a</b>\n%s
-border-size=2
-border-radius=26
-border-color=#9963ff
+border-size=1
+border-radius=0
+border-color=#743ad5
 default-timeout=5000
 output=DP-2
-anchor=top-center
+anchor=top-right
+outer-margin=10
 
 [urgency=high]
-
 ignore-timeout=1

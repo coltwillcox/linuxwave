@@ -91,6 +91,12 @@ Info:
 
 -   Mako theme.
 
+Screens:
+
+-   With sweet-icons theme:
+
+    <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-mako-0.png" width="200">
+
 Links:
 
 -   Mako: https://wayland.emersion.fr/mako/
