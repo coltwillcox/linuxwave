@@ -52,7 +52,7 @@ Screens:
 
 -   With sweet-icons theme:
 
-    <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-waybar-0.png" width="200">
+    <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-waybar-0.png" width="250">
 
 Links:
 
