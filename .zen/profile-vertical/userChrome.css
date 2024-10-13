@@ -472,3 +472,21 @@ findbar toolbarbutton {
 #TabsToolbar-customization-target:after {
 	display: none !important;
 }
+
+/* Vertical view */
+@media (-moz-bool-pref: 'zen.tabs.vertical') {
+	#zen-sidebar-top-buttons {
+		display: none !important;
+	}
+}
+
+#new-tab-button {
+	width: 32px !important;
+	margin-left: 6px !important;
+	margin-right: 6px !important;
+}
+
+#navigator-toolbox {
+	margin-left: 0px !important;
+	min-width: 44px !important;
+}

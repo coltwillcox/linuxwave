@@ -1,8 +1,8 @@
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 ![#f222ff](https://placehold.co/800x150/161925/f222ff.png?text=linuxwave&font=raleway)
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
-# linuxwave <sup>.dotfiles for Wayland/SwayFX desktop</sup>
-<img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/screenshot.png" width="800">
+# linuxwave <sup>.dotfiles for Wayland/Hyprland desktop</sup>
+<img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screenshot.png" width="800">
 
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 ### SwayFX <sup>.config/sway/</sup>
@@ -10,7 +10,7 @@ Info:
 * Will use swayidle to execute ```~/.config/kitty/scripts/idling.sh``` after 300 seconds if inactivity.
 
 Links: 
-* SwayFX: https://github.com/WillPower3309/swayfx
+* Hyprland: https://github.com/hyprwm/Hyprland
 * swayidle: https://github.com/swaywm/swayidle
 * Candy icons: https://github.com/EliverLara/candy-icons
 * VS Code synthwave: https://marketplace.visualstudio.com/items?itemName=coltwillcox.synthwave-x-fluoromachine-contrast
@@ -80,14 +80,17 @@ Edit:
 * None
 
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
-### Zen Browser <sup>.zen/profile/chrome/</sup>
+### Zen Browser <sup>.zen/profile/chrome/, .zen/profile-vertical/chrome/</sup>
 Info:
 * Zen Browser CSS customizations.
+
+Screens:
+<img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-zen-0.png" height="150"> <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-zen-1.png" height="150">
 
 Links: 
 * Zen Browser: https://zen-browser.app
 
 Edit:
-* If using non-expanded tabs, comment out ```Non expanded tabs only``` parts
+* Copy *.css files from profile or profile-vertical folder, depending on screen orientation.
 
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
