@@ -54,7 +54,7 @@ Info:
 
 Screens:
 
--   Default (0.5) transparency:
+-   Default theme with 0.5 transparency:
 
     <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-kitty-0.png" height="150">
 
@@ -107,13 +107,19 @@ Info:
 
 -   Powerlevel10k theme.
 
+Screens:
+
+-   With kitty default theme (0.5 transparency):
+
+    <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-kitty-0.png" height="150">
+
 Links:
 
 -   Powerlevel10k: https://github.com/romkatv/powerlevel10k
 
 Edit:
 
--   None
+-   None.
 
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 
