@@ -20,7 +20,7 @@ upload_percentage=$((100 * $upload / $max_upload))
 if [ $upload_percentage -lt 0 ]; then upload_percentage=0; fi
 if [ $upload_percentage -gt 100 ]; then upload_percentage=100; fi
 
-text="$download_icon $download_percentage%$upload_percentage $upload_icon"
-tooltip="$download_icon $array[3] $upload_icon $array[4]"
+text="$download_icon$download_percentage%$upload_percentage$upload_icon"
+tooltip="$download_icon$array[3] $upload_icon$array[4]"
 
 printf '{"text": "%s", "tooltip": "%s"}' "$text" "$tooltip"

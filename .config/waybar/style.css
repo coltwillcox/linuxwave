@@ -1,8 +1,9 @@
-@define-color border #9963ff;
-@define-color background #161925;
-@define-color font1 #f222ff;
-@define-color font2 #ffd318;
-@define-color shadow #fc199a;
+@define-color color1 #f222ff;
+@define-color color2 #743ad5;
+@define-color color3 #fc199a;
+@define-color color4 #161925;
+@define-color color5 #ffd318;
+@define-color color6 #ff79c6;
 
 * {
 	border: none;
@@ -10,40 +11,85 @@
 	font-family: Victor Mono;
 	font-size: 18px;
 	font-weight: bold;
-	text-shadow: 0 0 5px @shadow;
+	text-shadow: 0 0 5px @color3;
 }
 
 #workspaces {
 	margin-top: 8px;
-	margin-left: 12px;
+	margin-left: 9px;
 	margin-bottom: 0;
-	border-radius: 26px;
-	transition: none;
-	color: #4d4d4d;
-	background: @background;
-	border: 2px solid @border;
+	border: 1px solid transparent;
 }
 
 #workspaces button {
 	transition: none;
-	color: @font1;
-	background: transparent;
+	color: @color1;
+	background: @color4;
 	font-size: 16px;
-	text-shadow: 0 0 5px @shadow;
+	text-shadow: 0 0 5px @color3;
+	padding: 0px 12px 0px 12px;
+	transition-property: color;
+	transition-duration: 0.3s;
 }
 
-#workspaces button.focused {
-	color: @font2;
-	border-radius: 26px;
-	background: rgba(12, 14, 20, 1);
-	border: 2px solid @border;
+#workspaces button:nth-child(1) {
+	margin-top: -1px;
+	margin-bottom: -1px;
+	border-top: 1px solid @color2;
+	border-bottom: 1px solid @color2;
+	border-left: 1px solid @color2;
+	border-radius: 0;
+}
+
+#workspaces button:nth-child(4),
+#workspaces button:nth-child(8) {
+	margin-top: -1px;
+	margin-bottom: -1px;
+	border-top: 1px solid @color2;
+	border-bottom: 1px solid @color2;
+	border-left: 1px solid @color2;
+	border-radius: 0;
+}
+
+#workspaces button:nth-child(2),
+#workspaces button:nth-child(5),
+#workspaces button:nth-child(6),
+#workspaces button:nth-child(9) {
+	margin-top: -1px;
+	margin-bottom: -1px;
+	border-top: 1px solid @color2;
+	border-bottom: 1px solid @color2;
+}
+
+#workspaces button:nth-child(3),
+#workspaces button:nth-child(7) {
+	margin-right: 10px;
+	margin-top: -1px;
+	margin-bottom: -1px;
+	border-top: 1px solid @color2;
+	border-bottom: 1px solid @color2;
+	border-right: 1px solid @color2;
+	border-radius: 0;
+}
+
+#workspaces button:nth-child(10) {
+	margin-top: -1px;
+	margin-bottom: -1px;
+	border-top: 1px solid @color2;
+	border-bottom: 1px solid @color2;
+	border-right: 1px solid @color2;
+	border-radius: 0;
+}
+
+#workspaces button.active {
+	color: @color5;
 }
 
 #workspaces button:hover {
 	transition: none;
 	box-shadow: inherit;
 	text-shadow: inherit;
-	color: #ff79c6;
+	color: @color6;
 }
 
 window#waybar {
@@ -60,88 +106,83 @@ window#waybar.empty #window {
 }
 
 #window {
-	margin-top: 8px;
-	margin-top: 8px;
-	margin-left: 8px;
-	padding: 6px 16px 6px 16px;
+	background: @color4;
+	border: 1px solid;
+	border-image-slice: 1;
+	border-image-source: linear-gradient(to left, @color2, @color1, @color2);
 	margin-bottom: 0;
-	border-radius: 26px;
-	transition: none;
-	color: @font1;
-	background: @background;
-	border: 2px solid @border;
+	margin-left: 8px;
+	margin-right: 8px;
+	margin-top: 8px;
+	padding: 6px 16px 6px 16px;
+	color: @color1;
+	transition-property: background, border;
+	transition-duration: 0.3s;
 }
 
 #cpu {
-	margin-top: 8px;
-	margin-left: 8px;
-	padding: 6px 16px 6px 16px;
-	margin-bottom: 0;
-	border-radius: 26px;
-	transition: none;
-	color: @font1;
-	background: @background;
-	border: 2px solid @border;
+	margin: 8px 0px 0px 0px;
+	padding: 6px 8px 6px 16px;
+	border-top: 1px solid @color2;
+	border-bottom: 1px solid @color2;
+	border-left: 1px solid @color2;
+	border-radius: 0;
+	color: @color1;
+	background: @color4;
 }
 
 #memory {
-	margin-top: 8px;
-	margin-left: 8px;
-	padding: 6px 16px 6px 16px;
-	margin-bottom: 0;
-	border-radius: 26px;
+	margin: 8px 0px 0px 0px;
+	padding: 6px 8px 6px 16px;
+	border-top: 1px solid @color2;
+	border-bottom: 1px solid @color2;
 	transition: none;
-	color: @font1;
-	background: @background;
-	border: 2px solid @border;
+	color: @color1;
+	background: @color4;
 }
 
 #temperature {
-	margin-top: 8px;
-	margin-left: 8px;
-	padding: 6px 16px 6px 16px;
-	margin-bottom: 0;
-	border-radius: 26px;
+	margin: 8px 0px 0px 0px;
+	padding: 6px 8px 6px 16px;
+	border-top: 1px solid @color2;
+	border-bottom: 1px solid @color2;
 	transition: none;
-	color: @font1;
-	background: @background;
-	border: 2px solid @border;
+	color: @color1;
+	background: @color4;
 }
 
 #custom-netspeed {
-	margin-top: 8px;
-	margin-left: 8px;
-	padding: 6px 16px 6px 16px;
-	margin-bottom: 0;
-	border-radius: 26px;
+	margin: 8px 0px 0px 0px;
+	padding: 6px 8px 6px 16px;
+	border-top: 1px solid @color2;
+	border-bottom: 1px solid @color2;
 	transition: none;
-	color: @font1;
-	background: @background;
-	border: 2px solid @border;
+	color: @color1;
+	background: @color4;
 }
 
-#pulseaudio {
-	margin-top: 8px;
-	margin-left: 8px;
-	padding: 6px 16px 6px 16px;
-	margin-bottom: 0;
-	border-radius: 26px;
+#wireplumber {
+	margin: 8px 0px 0px 0px;
+	padding: 6px 16px 6px 8px;
+	border-top: 1px solid @color2;
+	border-bottom: 1px solid @color2;
+	border-right: 1px solid @color2;
+	border-radius: 0;
 	transition: none;
-	color: @font1;
-	background: @background;
-	border: 2px solid @border;
+	color: @color1;
+	background: @color4;
 }
 
 #tray {
 	margin-top: 8px;
-	margin-left: 8px;
+	margin-left: 10px;
 	padding: 6px 16px 6px 16px;
-	margin-bottom: 0;
-	border-radius: 26px;
+	margin-bottom: 0px;
+	border-radius: 0;
 	transition: none;
-	color: @font1;
-	background: @background;
-	border: 2px solid @border;
+	color: @color1;
+	background: @color4;
+	border: 1px solid @color2;
 }
 
 #tray menu {
@@ -149,32 +190,43 @@ window#waybar.empty #window {
 	margin-left: 8px;
 	padding: 6px 16px 6px 16px;
 	margin-bottom: 0;
-	border-radius: 26px;
+	border-radius: 0;
 	transition: none;
-	color: @font1;
-	background: @background;
-	border: 2px solid @border;
+	color: @color1;
+	background: @color4;
+	border: 1px solid @color2;
 }
 
 #clock {
 	margin-top: 8px;
-	margin-left: 8px;
-	margin-right: 12px;
+	margin-left: 10px;
+	margin-right: 10px;
 	padding: 6px 16px 6px 16px;
 	margin-bottom: 0;
-	border-radius: 26px;
+	border-radius: 0;
 	transition: none;
-	color: @font2;
-	background: @background;
-	border: 2px solid @border;
+	color: @color5;
+	background: @color4;
+	border: 1px solid @color2;
 }
 
 tooltip {
-	background: @background;
-	border: 2px solid @border;
-	border-radius: 26px;
+	background: @color4;
+	border: 1px solid @color2;
+	border-radius: 0;
 }
 
 tooltip label {
-	color: @font2;
+	color: @color5;
+}
+
+#custom-cavaleft,
+#custom-cavaright {
+	margin-top: 8px;
+	padding: 6px 16px 6px 16px;
+	border: 1px solid @color2;
+	color: @color1;
+	background: @color4;
+	font-family: 'bargraph';
+	background: @color4;
 }

@@ -5,21 +5,23 @@
 			"DP-2"
 		],
 		"modules-left": [
-			"sway/workspaces"
+			"hyprland/workspaces"
 		],
 		"modules-center": [
-			"sway/window"
+			"custom/cavaleft",
+			"hyprland/window",
+			"custom/cavaright"
 		],
 		"modules-right": [
 			"cpu",
 			"memory",
 			"temperature",
 			"custom/netspeed",
-			"pulseaudio",
+			"wireplumber",
 			"tray",
 			"clock"
 		],
-		"sway/workspaces": {
+		"hyprland/workspaces": {
 			"disable-click": false,
 			"disable-scroll": true,
 			"all-outputs": true,
@@ -44,17 +46,27 @@
 				"4": "\udb82\udeb6",
 				"5": "\udb80\ude39",
 				"6": "\udb82\ude1e",
-				"7": "\uf489",
-				"8": "\udb81\udcb1",
-				"9": "\udb84\udeca",
-				"10": "\udb80\udc3b",
+				"7": "\udb80\udc3b",
+				"8": "\uf489",
+				"9": "\udb81\udcb1",
+				"10": "\udb84\udeca",
 				"default": "\udb86\udd78"
 			}
 		},
-		"sway/window": {
+		"custom/cavaleft": {
+			"exec": "cava -p ~/.config/cava/configleft | sed -u 's/;//g;s/0/0/g;s/1/1/g;s/2/2/g;s/3/3/g;s/4/4/g;s/5/5/g;s/6/6/g;s/7/7/g;s/8/8/g;s/9/9/g;'",
+			"restart-interval": 1,
+			"tooltip": true
+		},
+		"hyprland/window": {
 			"format": "{title}",
 			"max-length": 60,
 			"all-outputs": true
+		},
+		"custom/cavaright": {
+			"exec": "cava -p ~/.config/cava/configright | sed -u 's/;//g;s/0/0/g;s/1/1/g;s/2/2/g;s/3/3/g;s/4/4/g;s/5/5/g;s/6/6/g;s/7/7/g;s/8/8/g;s/9/9/g;'",
+			"restart-interval": 1,
+			"tooltip": true
 		},
 		"cpu": {
 			"tooltip": true,
@@ -81,9 +93,9 @@
 			"tooltip": true,
 			"return-type": "json"
 		},
-		"pulseaudio": {
+		"wireplumber": {
 			"on-click": "pavucontrol",
-			"on-click-middle": "amixer -D pulse set Master 1+ toggle",
+			"on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
 			"tooltip": true,
 			"tooltip-format": "{volume}%",
 			"scroll-step": 5,
@@ -104,7 +116,20 @@
 		},
 		"clock": {
 			"format": "\uf017 {:%H:%M %d-%m}",
-			"tooltip-format": "{calendar}"
+			"tooltip-format": "{calendar}",
+			"calendar": {
+				"mode": "year",
+				"mode-mon-col": 3,
+				"on-scroll": 1,
+				"on-click-right": "mode",
+				"format": {
+					"months": "<span color='#F222FF'>{}</span>",
+					"days": "<span color='#F222FF'>{}</span>",
+					"weeks": "<span color='#F222FF'>{}</span>",
+					"weekdays": "<span color='#FFD318'>{}</span>",
+					"today": "<span color='#FFD318'>{}</span>"
+				}
+			}
 		}
 	}
 ]

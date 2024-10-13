@@ -13,10 +13,10 @@
 Info:
 
 -   Will use hypridle to lock with `~/.config/hypr/scripts/lock-slow.sh` after 300 seconds of inactivity.
--	Will use hyprlock to instantly lock with `~/.config/hypr/scripts/lock-fast.sh` on SUPER + L keypress.
--	When screen is locked, asciiquarium will be run, and closed when unlocked.
--	Hyprlock config will blur screen, except asciiquarium area and screen borders.
--	Will use hyprpaper to set wallpaper.
+-   Will use hyprlock to instantly lock with `~/.config/hypr/scripts/lock-fast.sh` on SUPER + L keypress.
+-   When screen is locked, asciiquarium will be run, and closed when unlocked.
+-   Hyprlock config will blur screen, except asciiquarium area and screen borders.
+-   Will use hyprpaper to set wallpaper.
 
 Screens:
 
@@ -28,10 +28,10 @@ Links:
 
 -   Hyprland: https://github.com/hyprwm/Hyprland
 -   Hyprlock: https://github.com/hyprwm/hyprlock
--	Hypridle: https://github.com/hyprwm/hypridle
--	Hyprpaper: https://github.com/hyprwm/hyprpaper
+-   Hypridle: https://github.com/hyprwm/hypridle
+-   Hyprpaper: https://github.com/hyprwm/hyprpaper
 -   Candy icons: https://github.com/EliverLara/candy-icons
--	Asciiquarium: https://github.com/nothub/asciiquarium
+-   Asciiquarium: https://github.com/nothub/asciiquarium
 -   VS Code synthwave: https://marketplace.visualstudio.com/items?itemName=coltwillcox.synthwave-x-fluoromachine-contrast
 
 Edit:
@@ -46,13 +46,20 @@ Edit:
 
 Info:
 
--   Waybar theme that displays workspaces, current window title, cpu, memory, temperature, network, volume, tray and clock.
+-   Waybar theme that displays workspaces, current window title, audio visualizer, cpu, memory, temperature, network, volume, tray and clock.
+
+Screens:
+
+-   With sweet-icons theme:
+
+    <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-waybar-0.png" width="200">
 
 Links:
 
 -   Waybar: https://github.com/Alexays/Waybar
--   Victor Mono font: https://rubjo.github.io/victor-mono/
+-	Cava: https://github.com/karlstav/cava
 -   Dool: https://github.com/scottchiefbaker/dool
+-   Victor Mono font: https://rubjo.github.io/victor-mono/
 
 Edit:
 
@@ -100,7 +107,7 @@ Links:
 
 Edit:
 
--	Change `-o DP-2` in file `power.py` to correct display in use (find display info with `hyprctl monitors`).
+-   Change `-o DP-2` in file `power.py` to correct display in use (find display info with `hyprctl monitors`).
 -   Optionally uncomment `Hibernate` lines in file `power.py`.
 
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
