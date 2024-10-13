@@ -57,7 +57,7 @@ Screens:
 Links:
 
 -   Waybar: https://github.com/Alexays/Waybar
--	Cava: https://github.com/karlstav/cava
+-   Cava: https://github.com/karlstav/cava
 -   Dool: https://github.com/scottchiefbaker/dool
 -   Victor Mono font: https://rubjo.github.io/victor-mono/
 
@@ -107,8 +107,8 @@ Links:
 
 Edit:
 
--   Change `-o DP-2` in file `power.py` to correct display in use (find display info with `hyprctl monitors`).
--   Optionally uncomment `Hibernate` lines in file `power.py`.
+-   File `.config/wofi/scripts/power.py`, change `DP-2` to correct monitor/output. Find output info with command: `hyprctl monitors'`
+-   File `.config/wofi/scripts/power.py` optionally uncomment `Hibernate` lines.
 
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 
@@ -130,7 +130,7 @@ Links:
 
 Edit:
 
--   Optionally `icon-path` line in `./config/mako/config`
+-   File `./config/mako/config` optionally `icon-path` line.
 
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 
