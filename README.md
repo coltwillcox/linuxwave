@@ -85,7 +85,9 @@ Info:
 * Zen Browser CSS customizations.
 
 Screens:
-<img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-zen-0.png" height="150"> <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-zen-1.png" height="150">
+* Horizontal & vertical:
+  
+  <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-zen-0.png" height="150"> <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-zen-1.png" height="150">
 
 Links: 
 * Zen Browser: https://zen-browser.app
