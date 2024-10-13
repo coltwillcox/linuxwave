@@ -42,7 +42,7 @@ Links:
 
 Edit:
 
--   File `.config/waybar/config`, change "DP-2" to correct monitor/output. Find output IDs with command: `swaymsg -t get_outputs | jq -r 'sort_by(.rect.x) | .[].name'`
+-   File `.config/waybar/config`, change `DP-2` to correct monitor/output. Find output info with command: `hyprctl monitors'`
 
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 
@@ -86,8 +86,8 @@ Links:
 
 Edit:
 
--	Change `-o DP-2` in `power.py` to correct display in use (find display info with `hyprctl monitors`).
--   Optionally uncomment `Hibernate` lines in `power.py`.
+-	Change `-o DP-2` in file `power.py` to correct display in use (find display info with `hyprctl monitors`).
+-   Optionally uncomment `Hibernate` lines in file `power.py`.
 
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 
