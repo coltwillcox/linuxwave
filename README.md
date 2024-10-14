@@ -4,7 +4,7 @@
 
 # linuxwave <sup>.dotfiles for Wayland/Hyprland desktop</sup>
 
-<img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screenshot.png" width="800">
+<img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-full-0.png" width="800">
 
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 
