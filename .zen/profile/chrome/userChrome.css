@@ -20,7 +20,22 @@
 	--urlbarView-labeled-row-label-top: 0px !important;
 	--inactive-titlebar-opacity: 1 !important;
 	--tab-selected-bgcolor: #000000 !important;
-	--zen-toolbar-height: 48px !important;
+}
+
+@media (max-resolution: 1dppx) {
+	:root {
+		--sw-height: 32px;
+		--sw-padding-bottom: 9px;
+		--zen-toolbar-height: 48px !important;
+	}
+}
+
+@media (min-resolution: 2dppx) {
+	:root {
+		--sw-height: 22px;
+		--sw-padding-bottom: 7px;
+		--zen-toolbar-height: 38px !important;
+	}
 }
 
 panel toolbarseparator {
@@ -54,7 +69,7 @@ menuitem {
 	border: 1px transparent solid !important;
 	padding-top: 0px !important;
 	padding-bottom: 0px !important;
-	height: 32px !important;
+	height: var(--sw-height) !important;
 }
 
 #navigator-toolbox toolbar#TabsToolbar {
@@ -64,10 +79,10 @@ menuitem {
 
 .tabbrowser-tab {
 	border: 1px transparent solid !important;
-	--tab-min-width: 32px !important;
+	--tab-min-width: var(--sw-height) !important;
 	color: #eeeeff !important;
 	text-shadow: none !important;
-	height: 32px !important;
+	height: var(--sw-height) !important;
 	min-height: unset !important;
 }
 
@@ -85,7 +100,7 @@ menuitem {
 }
 
 toolbarbutton {
-	--zen-sidebar-action-button-width: 32px !important;
+	--zen-sidebar-action-button-width: var(--sw-height) !important;
 	height: var(--zen-sidebar-action-button-width) !important;
 }
 
@@ -129,6 +144,7 @@ hbox toolbarbutton {
 
 #tabs-newtab-button {
 	opacity: unset !important;
+	min-height: unset !important;
 }
 
 #tabs-newtab-button,
@@ -172,7 +188,34 @@ hbox toolbarbutton {
 #urlbar {
 	font-size: unset !important;
 	border: 1px #743ad5 solid !important;
-	--urlbar-height: 32px !important;
+	--urlbar-height: var(--sw-height) !important;
+	width: var(--urlbar-width) !important;
+}
+
+#urlbar,
+#searchbar {
+	min-height: unset !important;
+}
+
+.urlbar-input-container {
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+
+#urlbar {
+	padding: 0px !important;
+}
+
+.urlbarView-no-wrap {
+	flex-basis: unset !important;
+}
+
+.urlbarView-row-inner {
+	flex-wrap: unset !important;
+}
+
+.urlbar-page-action {
+	max-height: 100% !important;
 }
 
 .urlbar-input {
@@ -183,6 +226,7 @@ hbox toolbarbutton {
 #urlbar-background,
 #searchbar {
 	background-color: #000000 !important;
+	margin: 0px !important;
 }
 
 #urlbar[open] > #urlbar-background {
@@ -216,9 +260,14 @@ hbox toolbarbutton {
 	color: #f222ff !important;
 }
 
+#urlbar-container {
+	--urlbar-container-height: var(--sw-height) !important;
+}
+
 #urlbar-container,
 #search-container {
 	margin-inline: 2px !important;
+	--urlbar-container-height: var(--sw-height) !important;
 }
 
 #identity-permission-box {
@@ -322,7 +371,7 @@ findbar toolbarbutton {
 
 .findbar-textbox {
 	border: 1px solid #743ad5 !important;
-	height: 32px !important;
+	height: var(--sw-height) !important;
 	background: #000000 !important;
 }
 
@@ -398,7 +447,7 @@ findbar toolbarbutton {
 }
 
 #zen-essentials-container {
-	padding-bottom: 9px !important;
+	padding-bottom: var(--sw-padding-bottom) !important;
 }
 
 :is(
@@ -476,6 +525,7 @@ menuitem {
 		border-image: linear-gradient(to left, #743ad5, #f222ff, #743ad5) 1 !important;
 		border-width: 1px !important;
 		border-style: solid !important;
+		margin-bottom: -1px !important;
 	}
 
 	& .tabbrowser-tab {
@@ -579,7 +629,8 @@ menuitem {
 }
 
 .urlbarView-row {
-	height: 32px !important;
+	height: var(--sw-height) !important;
+	min-height: unset !important;
 	border: 1px transparent solid !important;
 	margin-left: 1px !important;
 	margin-right: 3px !important;

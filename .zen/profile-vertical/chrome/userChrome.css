@@ -21,6 +21,7 @@
 	--inactive-titlebar-opacity: 1 !important;
 	--tab-selected-bgcolor: #000000 !important;
 	--zen-toolbar-height: 48px !important;
+	--sw-height: 32px;
 }
 
 panel toolbarseparator {
@@ -54,7 +55,7 @@ menuitem {
 	border: 1px transparent solid !important;
 	padding-top: 0px !important;
 	padding-bottom: 0px !important;
-	height: 32px !important;
+	height: var(--sw-height) !important;
 }
 
 #navigator-toolbox toolbar#TabsToolbar {
@@ -64,11 +65,11 @@ menuitem {
 
 .tabbrowser-tab {
 	border: 1px transparent solid !important;
-	--tab-min-width: 32px !important;
+	--tab-min-width: var(--sw-height) !important;
 	color: #eeeeff !important;
 	text-shadow: none !important;
-	width: 32px !important;
-	height: 32px !important;
+	width: var(--sw-height) !important;
+	height: var(--sw-height) !important;
 	min-height: unset !important;
 }
 
@@ -86,7 +87,7 @@ menuitem {
 }
 
 toolbarbutton {
-	--zen-sidebar-action-button-width: 32px !important;
+	--zen-sidebar-action-button-width: var(--sw-height) !important;
 	height: var(--zen-sidebar-action-button-width) !important;
 }
 
@@ -103,6 +104,7 @@ hbox toolbarbutton {
 	margin-inline: unset !important;
 	min-height: unset !important;
 	height: unset !important;
+	width: unset !important;
 }
 
 .tabbrowser-tab:hover {
@@ -129,6 +131,7 @@ hbox toolbarbutton {
 
 #tabs-newtab-button {
 	opacity: unset !important;
+	min-height: unset !important;
 }
 
 #tabs-newtab-button,
@@ -169,19 +172,37 @@ hbox toolbarbutton {
 	padding-top: 0px !important;
 }
 
-tab-group[split-view-group] {
-	display: inline !important;
-	padding: 0px !important;
-	margin-inline: 0px !important;
-	margin-block: 0px !important;
-	background: unset !important;
-	scale: unset !important;
-}
-
 #urlbar {
 	font-size: unset !important;
 	border: 1px #743ad5 solid !important;
-	--urlbar-height: 32px !important;
+	--urlbar-height: var(--sw-height) !important;
+	width: var(--urlbar-width) !important;
+}
+
+#urlbar,
+#searchbar {
+	min-height: unset !important;
+}
+
+.urlbar-input-container {
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+
+#urlbar {
+	padding: 0px !important;
+}
+
+.urlbarView-no-wrap {
+	flex-basis: unset !important;
+}
+
+.urlbarView-row-inner {
+	flex-wrap: unset !important;
+}
+
+.urlbar-page-action {
+	max-height: 100% !important;
 }
 
 .urlbar-input {
@@ -192,6 +213,7 @@ tab-group[split-view-group] {
 #urlbar-background,
 #searchbar {
 	background-color: #000000 !important;
+	margin: 0px !important;
 }
 
 #urlbar[open] > #urlbar-background {
@@ -226,12 +248,13 @@ tab-group[split-view-group] {
 }
 
 #urlbar-container {
-	--urlbar-container-height: 32px !important;
+	--urlbar-container-height: var(--sw-height) !important;
 }
 
 #urlbar-container,
 #search-container {
 	margin-inline: 2px !important;
+	--urlbar-container-height: var(--sw-height) !important;
 }
 
 #identity-permission-box {
@@ -308,6 +331,15 @@ tab-group[split-view-group] {
 	flex-direction: column !important;
 }
 
+tab-group[split-view-group] {
+	display: inline !important;
+	padding: 0px !important;
+	margin-inline: 0px !important;
+	margin-block: 0px !important;
+	background: unset !important;
+	scale: unset !important;
+}
+
 findbar {
 	background: #161925 !important;
 	border-top: 1px #743ad5 solid !important;
@@ -326,7 +358,7 @@ findbar toolbarbutton {
 
 .findbar-textbox {
 	border: 1px solid #743ad5 !important;
-	height: 32px !important;
+	height: var(--sw-height) !important;
 	background: #000000 !important;
 }
 
@@ -354,6 +386,16 @@ findbar toolbarbutton {
 	height: unset !important;
 }
 
+#tabbrowser-arrowscrollbox-periphery {
+	width: var(--sw-height) !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	position: sticky !important;
+	bottom: 0 !important;
+	background: #161925 !important;
+	z-index: 1 !important;
+}
+
 #navigator-toolbox {
 	margin-top: 8px !important;
 	margin-left: 8px !important;
@@ -374,7 +416,7 @@ findbar toolbarbutton {
 }
 
 #new-tab-button {
-	width: 32px !important;
+	width: var(--sw-height) !important;
 }
 
 #navigator-toolbox {
@@ -388,20 +430,6 @@ findbar toolbarbutton {
 
 #zen-appcontent-wrapper {
 	padding-left: 5px !important;
-}
-
-#tabbrowser-arrowscrollbox-periphery {
-	width: 32px !important;
-	margin-left: auto !important;
-	margin-right: auto !important;
-	position: sticky !important;
-	bottom: 0 !important;
-	background: #161925 !important;
-	z-index: 1 !important;
-}
-
-.tab-background {
-	width: unset !important;
 }
 
 #titlebar {
@@ -540,6 +568,7 @@ tab-group[split-view-group] {
 		border-image: linear-gradient(to left, #743ad5, #f222ff, #743ad5) 1 !important;
 		border-width: 1px !important;
 		border-style: solid !important;
+		margin-bottom: -1px !important;
 	}
 
 	& > .tabbrowser-tab {
@@ -671,7 +700,8 @@ tab-group[split-view-group] {
 }
 
 .urlbarView-row {
-	height: 32px !important;
+	height: var(--sw-height) !important;
+	min-height: unset !important;
 	border: 1px transparent solid !important;
 	margin-left: 1px !important;
 	margin-right: 3px !important;
