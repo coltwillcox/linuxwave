@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 import os
+import subprocess
 
 
 def run_menu():
@@ -13,7 +14,7 @@ def run_menu():
     )
 
     actions = (
-        "swaymsg exit",
+        "uwsm stop",
         "systemctl suspend",
  #       "systemctl hibernate",
         "systemctl reboot",
@@ -23,7 +24,14 @@ def run_menu():
     options = "\n".join(keys)
     choice = os.popen("echo -e '" + options + "' | wofi -a -b -d -i -o DP-2 -W 200 -k /dev/null -c ~/.config/wofi/config_nosearch -s ~/.config/wofi/style_nosearch.css").readline().strip()
     if choice in keys:
-        os.popen(actions[keys.index(choice)])
+        subprocess.Popen(
+            actions[keys.index(choice)],
+            shell=True,
+            stdin=subprocess.DEVNULL,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            start_new_session=True,
+        )
 
 
 run_menu()
