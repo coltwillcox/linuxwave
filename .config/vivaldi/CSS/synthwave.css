@@ -1,0 +1,550 @@
+/* ---------- 1. Tokens ---------------------------------------------------- */
+
+:root {
+	--acc1: #743ad5 !important;
+	--acc2: #f222ff !important;
+	--accgrad: linear-gradient(to left, #743ad5, #f222ff, #743ad5) !important;
+	--sel: #00ff00 !important;
+	--glow: 0 0 5px #fc199a !important;
+	--sw-height: 24px !important;
+
+	/* MUST match vivaldi.tabs.bar.width in Default/Preferences. Drag-resizing
+	   the tab bar rewrites the pref but not this — if the address bar stops
+	   lining up with the page, that is why. */
+	--tabbar-width: 227px;
+
+	/* Row height is independent of Vivaldi's inline per-tab --Height, so tab
+	   spacing no longer drifts with the tab count. 32px at 1dppx, overridden
+	   to 22px at 2dppx below. */
+	--tab-height: 32px;
+	--tab-vgap: 0px;
+	--tab-hgap: 0px; /* 0 = pinned tabs sit flush across the 3 columns */
+	--tab-side-margin: 8px;
+
+	/* Vivaldi's runtime theme tokens, injected on :root by bundle.js.
+	   !important on a custom property beats the injected declaration. */
+	--colorBg: #000000 !important;
+	--colorBgDark: #000000 !important;
+	--colorBgDarker: #000000 !important;
+	--colorBgLight: #000000 !important;
+	--colorBgIntense: #000000 !important;
+	--colorFg: #eeeeff !important;
+	--colorFgFaded: #8888aa !important;
+	--colorBorder: #743ad5 !important;
+	--colorBorderIntense: #f222ff !important;
+	--colorAccentBg: #743ad5 !important;
+	--colorAccentFg: #eeeeff !important;
+	--colorHighlightBg: #743ad5 !important;
+
+	/* Speed Dial / start page paint from these, not --colorBg. */
+	--browserBackgroundColor: #000000 !important;
+	--browserBackgroundImage: none !important;
+
+	/* Checkboxes, radios and range thumbs are painted by the UA accent. */
+	accent-color: var(--acc1) !important;
+}
+
+/* High-DPI tab height. Same specificity as the :root above, so this must
+   stay after it. */
+@media (min-resolution: 2dppx) {
+	:root {
+		--tab-height: 22px;
+	}
+}
+
+/* ---------- 2. Global ---------------------------------------------------- */
+
+* {
+	font-family: 'Victor Mono SemiBold' !important;
+	font-size: 15px !important;
+	border-radius: unset !important;
+}
+
+#main {
+	margin-right: 8px !important;
+}
+
+/* Push the V button to the end of the toolbar. */
+button.vivaldi {
+	order: 9999 !important;
+}
+
+.window-buttongroup {
+	display: none !important;
+}
+
+.toolbar.toolbar-tabbar-before.toolbar-large.toolbar-droptarget {
+	display: none !important;
+}
+
+/* ---------- 3. Black surfaces -------------------------------------------- */
+
+#browser,
+#mainbar,
+.mainbar,
+#footer,
+#tabs-tabbar-container {
+	background: #000000 !important;
+}
+
+#footer,
+.mainbar {
+	border: unset !important;
+}
+
+/* Blank-tab surfaces, so nothing flashes light before content paints.
+   background-image must die on the element itself: Vivaldi sets
+   --browserBackgroundImage on a nearer ancestor, and custom properties resolve
+   by closest-ancestor inheritance, which !important on :root cannot beat. */
+#webpage-stack,
+.webpageview,
+.webpage,
+.webview-placeholder,
+.startpage,
+.webpageview.internal.visible .startpage.is-showing-speeddial,
+.webpageview.internal.visible .welcome-wrapper {
+	background-color: #000000 !important;
+	background-image: none !important;
+}
+
+#webview-container {
+	border: 1px solid var(--acc1);
+}
+
+#panels-container {
+	border: unset !important;
+}
+
+/* ---------- 4. Mainbar + top New Tab button ------------------------------ */
+
+/* NewTab is first in toolbars.navigation. Sizing it to the tab bar width makes
+   it span exactly the tab column, so the AddressField after it starts flush
+   with #webview-container's left edge.
+   .toolbar is align-items: center, which would absorb an asymmetric
+   margin-top, and .toolbar-mainbar is a fixed 34px — let the bar grow instead. */
+.mainbar .toolbar-mainbar,
+.mainbar .toolbar-addressbar {
+	height: auto !important;
+	min-height: 34px !important;
+	margin-top: 8px !important;
+	margin-bottom: 8px !important;
+}
+
+/* Margins sit outside the flex basis, so the footprint stays at --tabbar-width. */
+.mainbar .button-toolbar.newtab,
+.toolbar-addressbar > .button-toolbar.newtab {
+	--newtab-width: calc(var(--tabbar-width) - var(--tab-side-margin) * 2);
+	flex: 0 0 var(--newtab-width) !important;
+	width: var(--newtab-width) !important;
+	min-width: var(--newtab-width) !important;
+	max-width: var(--newtab-width) !important;
+	box-sizing: border-box !important;
+	display: flex !important;
+	justify-content: flex-start !important;
+}
+
+/* The margin has to sit on the toolbar's actual flex child. */
+.mainbar .toolbar-addressbar > .button-toolbar.newtab {
+	align-self: flex-start !important;
+	margin: var(--tab-side-margin) var(--tab-side-margin) 0 var(--tab-side-margin) !important;
+	box-sizing: border-box !important;
+}
+
+/* .button-toolbar is only the wrapper; the <button> inside is min-width: 34px
+   and would not reach the wrapper's 8px left edge on its own. */
+.mainbar .button-toolbar.newtab > button,
+.toolbar-addressbar > .button-toolbar.newtab > button {
+	width: 100% !important;
+	margin: 0 !important;
+}
+
+#browser.linux.maximized .mainbar .toolbar > div:first-of-type {
+	margin-left: 8px !important;
+	margin-top: 0px !important;
+	padding: 0px !important;
+}
+
+/* ---------- 5. Tab strip layout ------------------------------------------ */
+
+/* Fixed vertical rhythm. .tab-strip is flex: 1 1 auto, so as a grid with
+   implicit rows it would stretch them to fill the bar; grid-auto-rows pins the
+   row height and align-content: start pushes the slack to the bottom.
+   The margins override #tabs-container.left .tab-strip's density-gap inset. */
+.tab-strip {
+	display: grid !important;
+	grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+	grid-auto-rows: var(--tab-height) !important;
+	align-content: start !important;
+	row-gap: var(--tab-vgap) !important;
+	column-gap: var(--tab-hgap) !important;
+	margin-left: var(--tab-side-margin) !important;
+	margin-right: var(--tab-side-margin) !important;
+	max-width: calc(100% - var(--tab-side-margin) * 2) !important;
+}
+
+/* Drop Vivaldi's absolute per-tab positioning so the grid owns layout. */
+.tab-position {
+	display: contents !important;
+	--Height: unset !important;
+}
+
+.tab-position:not(.is-pinned) .tab-wrapper {
+	grid-column: 1 / -1 !important;
+	width: 100% !important;
+}
+
+.tab-strip .separator {
+	grid-column: 1 / -1 !important;
+	position: unset !important;
+	--PositionX: unset !important;
+	--PositionY: unset !important;
+	height: 32px !important;
+}
+
+/* .separator is only a positioning wrapper — the visible line is a child <hr>
+   at height: 0 (so the border is what shows) with opacity: 0.15. */
+.tab-strip .separator hr,
+#tabs-tabbar-container .separator hr {
+	border-color: var(--acc1) !important;
+	border-top: 0px !important;
+	background: var(--acc1) !important;
+	opacity: 1 !important;
+	width: 100% !important;
+	margin-top: auto !important;
+	margin-bottom: auto !important;
+}
+
+#tabs-container .resize {
+	flex: unset !important;
+}
+
+/* WARNING: setting #tabs-container / .resize to flex: 0 1 auto + min-height: 0
+   collapses the strip to zero height and hides every tab. Vivaldi's .resize is
+   flex: 1 1 100% with min-height: 36px and the strip depends on it. */
+
+#browser:not(.unified-ui) #tabs-tabbar-container.left,
+#browser:not(.unified-ui) #tabs-tabbar-container.right,
+#browser:not(.unified-ui).auto-hide > .auto-hide-wrapper #tabs-tabbar-container.left,
+#browser:not(.unified-ui).auto-hide > .auto-hide-wrapper #tabs-tabbar-container.right {
+	padding-top: 0px !important;
+}
+
+/* ---------- 6. Tabs ------------------------------------------------------ */
+
+/* Vivaldi clamps .tab-wrapper with max-height: var(--Height), set inline per
+   tab. That has to go or rows vary again. */
+.tab-wrapper {
+	height: var(--tab-height) !important;
+	min-height: var(--tab-height) !important;
+	max-height: var(--tab-height) !important;
+}
+
+/* Reserve the hover/active border at all times — Vivaldi gives .tab no border
+   in a left tab bar, so adding one on hover shifted the label. Must precede
+   the gradient rule below. */
+.tab-wrapper .tab {
+	height: 100% !important;
+	border: 1px solid transparent !important;
+	box-sizing: border-box !important;
+}
+
+/* 0,3,0 — outranks the 0,2,0 reservation above, whose `border` shorthand would
+   otherwise reset border-image to none. */
+.tab-wrapper .tab.active,
+.tab-wrapper:hover .tab {
+	border-image: var(--accgrad) 1 !important;
+	border-width: 1px !important;
+	border-style: solid !important;
+}
+
+/* Overrides every .tab background common.css sets, including the .active
+   accent fill. .tab-acceptsdrop stays out so drop targets remain visible. */
+.tab:not(.tab-acceptsdrop) {
+	background-color: #000000 !important;
+}
+
+/* .linux .tab .title is inline-block at a hardcoded 29px line-height, so it
+   sits on a baseline instead of being centred. Tie it to the tab height. */
+.tab .title {
+	height: 100% !important;
+	line-height: calc(var(--tab-height) - 2px) !important;
+}
+
+.tab-wrapper .active .title {
+	color: var(--sel) !important;
+}
+
+/* Hibernated: dim the label only. A filter on .tab-wrapper faded the gradient
+   border with it and created a stacking context on every discarded tab. */
+.tab-wrapper:has(> .isdiscarded) .title {
+	opacity: 0.5 !important;
+}
+
+/* .tab-header is flex: 0 0 30px, taller than the 26px content box left by the
+   border, and was overflowing onto the countdown bar's strip. */
+.tab .tab-header {
+	flex: 1 1 auto !important;
+	min-height: 0 !important;
+	padding: unset !important;
+}
+
+.favicon {
+	filter: unset !important;
+}
+
+/* ---------- 7. Pinned tabs ----------------------------------------------- */
+
+.is-pinned .title {
+	display: none !important;
+}
+
+/* Flush against each other: no grid gutter, nothing of their own either. */
+.tab-position.is-pinned .tab-wrapper,
+.tab-position.is-pinned .tab-wrapper .tab,
+.tab-position.is-pinned .tab-header {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.tab-position.is-pinned .favicon {
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+	margin: auto !important;
+}
+
+/* ---------- 8. Tab indicators -------------------------------------------- */
+
+/* Loading ring. Vivaldi masks it with radial coordinates that assume a 16x16
+   box and rounds it with border-radius: 50%, which the global `*` reset above
+   flattens — both have to be restored. Its conic-gradient is currentColor at
+   20% alpha, invisible on black, so the accent is set explicitly. */
+.tab .favicon.progress,
+.tab-position.is-pinned .favicon.progress {
+	border-radius: 50% !important;
+	width: 16px !important;
+	height: 16px !important;
+	min-width: 16px !important;
+	max-width: 16px !important;
+	min-height: 16px !important;
+	max-height: 16px !important;
+	color: var(--acc2) !important;
+	opacity: 1 !important;
+	visibility: visible !important;
+	overflow: visible !important;
+}
+
+/* Periodic Reload countdown. Vivaldi sizes it from the inline --Width that the
+   grid above retires, so it has to be re-derived from the real box. z-index
+   lifts it over .tab-header, which otherwise paints on top in DOM order. */
+.page-progress-indicator {
+	width: auto !important;
+	left: 2px !important;
+	right: 2px !important;
+	bottom: 1px !important;
+	height: 3px !important;
+	color: var(--acc2) !important;
+	z-index: 3 !important;
+}
+
+.page-progress-indicator::-webkit-progress-value {
+	background-color: var(--acc2) !important;
+}
+
+.page-progress-indicator::-webkit-progress-bar {
+	background-color: color-mix(in srgb, var(--acc2) 25%, transparent) !important;
+}
+
+.tab-audio.audio-on svg,
+.tab-audio.audio-muted svg {
+	fill: #ffd318 !important;
+}
+
+/* ---------- 9. Bottom New Tab button ------------------------------------- */
+
+/* Vivaldi only stretches this when a flexible spacer precedes it, which
+   toolbars.tabbar_after = ['NewTab'] does not provide. */
+#tabs-tabbar-container .button-toolbar.newtab {
+	width: 100% !important;
+	max-width: unset !important;
+	flex: 0 0 auto !important;
+}
+
+#tabs-tabbar-container .button-toolbar.newtab > button {
+	width: 100% !important;
+}
+
+/* Same 8px inset as the tabs, so the widths still match. */
+.tabs-left #tabs-tabbar-container .toolbar-tabbar-after,
+.tabs-right #tabs-tabbar-container .toolbar-tabbar-after {
+	padding-left: var(--tab-side-margin) !important;
+	padding-right: var(--tab-side-margin) !important;
+}
+
+/* ---------- 10. Toolbar buttons + icons ---------------------------------- */
+
+.button-toolbar > button {
+	border: 1px solid transparent !important;
+}
+
+.button-toolbar > button:hover {
+	background-color: #000000 !important;
+	border-image: var(--accgrad) 1 !important;
+	border-width: 1px !important;
+	border-style: solid !important;
+}
+
+/* Recolour via `color`, NEVER `fill`. Vivaldi's icons are outlines: 67 of the
+   69 in resources/theme/vivaldi/ carry fill="none" and stroke="currentColor".
+   A CSS `fill` outranks that presentation attribute and inherits into the
+   children, flooding every outline solid — that is what filled the Settings
+   gear and the Reload arc. `color` drives fill and stroke alike and leaves
+   fill="none" intact. */
+.button-toolbar svg,
+.UrlBar-AddressField svg,
+.find-in-page svg {
+	color: var(--acc2) !important;
+}
+
+.toolbar-separator,
+.toolbar-divider {
+	border-top: 1px solid var(--acc1) !important;
+	background: var(--acc1) !important;
+}
+
+/* ---------- 11. Address bar + URL dropdown ------------------------------- */
+
+.UrlBar-AddressField {
+	background: #000000 !important;
+	border: 1px #743ad5 solid !important;
+	margin-left: 0px !important;
+	height: 34px !important;
+}
+
+/* .OmniDropdown-* / .OmniLinkItem-* are React-generated names from bundle.js,
+   not stable API — check this section first after a Vivaldi update. */
+.OmniDropdown {
+	background: #000000 !important;
+	border-image: var(--accgrad) 1 !important;
+	border-width: 1px !important;
+	border-style: solid !important;
+}
+
+.OmniDropdown-Label {
+	color: var(--acc2) !important;
+}
+
+.OmniLinkItem-DisplayText {
+	color: #eeeeff !important;
+}
+
+.OmniLinkItem--Highlighted {
+	background-color: #000000 !important;
+	border-image: var(--accgrad) 1 !important;
+	border-width: 1px !important;
+	border-style: solid !important;
+}
+
+.OmniLinkItem--Highlighted .OmniLinkItem-DisplayText {
+	color: var(--sel) !important;
+	text-shadow: var(--glow);
+}
+
+.OmniLinkItem-Badge {
+	color: var(--acc2) !important;
+}
+
+/* ---------- 12. Find bar ------------------------------------------------- */
+
+.find-in-page {
+	background: #000000 !important;
+	border-top: 1px solid var(--acc1) !important;
+}
+
+.find-in-page .fip-input-container > input {
+	background: #000000 !important;
+	border: 1px solid var(--acc1) !important;
+	color: #eeeeff !important;
+	height: var(--sw-height) !important;
+}
+
+.fip-results,
+.fip-input-label {
+	color: var(--acc2) !important;
+}
+
+.fip-active-hit {
+	outline: 1px solid var(--acc2) !important;
+}
+
+/* ---------- 13. Menus ---------------------------------------------------- */
+
+/* Unprefixed on purpose. common.css ships .linux / .mac variants of these; if
+   menu items pick up a double border, scope this section under .linux. */
+.menu > ul,
+.menu ul ul {
+	background: #000000 !important;
+	border-image: var(--accgrad) 1 !important;
+	border-width: 1px !important;
+	border-style: solid !important;
+}
+
+.menu li > a {
+	border: 1px solid transparent !important;
+	color: #eeeeff !important;
+}
+
+.menu li.selectedItem > a,
+.menu ul li a:focus {
+	background-color: #000000 !important;
+	border-image: var(--accgrad) 1 !important;
+	border-width: 1px !important;
+	border-style: solid !important;
+	color: var(--sel) !important;
+}
+
+/* ---------- 14. Tooltips -------------------------------------------------- */
+
+/* The tab hover preview card is the only tooltip Vivaldi renders as DOM:
+   bundle.js appends #vivaldi-tooltip to #browser for it alone, and it exists
+   only while vivaldi.tabs.tooltip ("Display tab popup tooltip preview") is on.
+   Every other tooltip is a title= attribute drawn by Chromium as a native Views
+   widget — unreachable from CSS, same as the menus.
+   The card holds a title, a hostname and a memory reading; it has no time or
+   date field, and no pref controls its delay.
+   .tooltip-item inherits var(--colorBg) but ships no border, so it needs one to
+   have an edge against a black page. */
+#vivaldi-tooltip .tooltip .tooltip-item {
+	background-color: #000000 !important;
+	border: 1px solid var(--acc1) !important;
+	box-sizing: border-box !important;
+}
+
+/* ---------- 15. Focus indicators ----------------------------------------- */
+
+/* Vivaldi draws focus as an outline and Chromium's blue UA ring wins on inner
+   <input>s. outline cannot take a border-image, so on real text fields the
+   indicator moves to the border and the outline/shadow are dropped. */
+.UrlBar-AddressField:focus-within,
+.SearchField:focus-within,
+.MailSearchField-Inner:focus-within,
+.multiinput:focus-within,
+.VivaldiSelector__control:focus-within,
+.find-in-page .fip-input-container > input:focus,
+.find-in-page .fip-input-container > input:focus-visible {
+	outline: none !important;
+	box-shadow: none !important;
+	border-image: var(--accgrad) 1 !important;
+	border-width: 1px !important;
+	border-style: solid !important;
+	box-sizing: border-box !important;
+}
+
+/* Everything else keeps its ring, recoloured off the UA blue. */
+:focus-visible,
+input:focus,
+input:focus-visible,
+textarea:focus,
+select:focus {
+	outline-color: var(--acc2) !important;
+}

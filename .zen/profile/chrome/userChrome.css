@@ -1,33 +1,37 @@
-* {
-	font-family: 'Victor Mono SemiBold' !important;
-	border-radius: 0px !important;
-}
-
-:not([inDOMFullscreen='true']) #appcontent,
-#sidebar-box {
-	padding-left: 3px !important;
-}
-
-#zen-main-app-wrapper {
-	background: #161925 !important;
-}
+/* ---------- 1. Tokens ---------------------------------------------------- */
 
 :root {
-	--zen-appcontent-border: 1px #743ad5 solid !important;
+	--acc1: #743ad5;
+	--acc2: #f222ff;
+	--accgrad: linear-gradient(to left, #743ad5, #f222ff, #743ad5);
+	--sel: #00ff00;
+	--fg: #eeeeff;
+	--bg: #000000;
+	--audio: #ffd318;
+	--glow: 0 0 5px #fc199a;
+
+	/* Base values are the 1dppx set; the 2dppx block below is the other
+	   breakpoint. Gating BOTH in media queries left these undefined at
+	   fractional scaling, which broke every rule that depends on them. */
+	--sw-height: 32px;
+	--sw-padding-bottom: 9px;
+	--zen-toolbar-height: 48px !important;
+
+	/* Vertical offset of the focused (breakout) urlbar. Absolute, not additive:
+	   it replaces Zen's --urlbar-margin-block-start-breakout, which resolves to
+	   0 here because that token is declared on :root and computed against
+	   heights that only exist on #urlbar / #urlbar-container.
+	   Larger moves the panel down, smaller up. */
+	--urlbar-breakout-shift: 14px;
+
+	--zen-appcontent-border: 1px var(--acc1) solid !important;
+	--zen-main-browser-background: var(--bg) !important;
+	--tab-selected-bgcolor: var(--bg) !important;
 	--tab-min-height: 32px !important;
+	--inactive-titlebar-opacity: 1 !important;
 	--urlbarView-labeled-tip-margin-top-extra: 0px !important;
 	--urlbarView-labeled-row-margin-top: 0px !important;
 	--urlbarView-labeled-row-label-top: 0px !important;
-	--inactive-titlebar-opacity: 1 !important;
-	--tab-selected-bgcolor: #000000 !important;
-}
-
-@media (max-resolution: 1dppx) {
-	:root {
-		--sw-height: 32px;
-		--sw-padding-bottom: 9px;
-		--zen-toolbar-height: 48px !important;
-	}
 }
 
 @media (min-resolution: 2dppx) {
@@ -38,38 +42,53 @@
 	}
 }
 
-panel toolbarseparator {
-	border-top: 1px #743ad5 solid !important;
+@media (max-resolution: 1dppx) {
+	.tab-close-button {
+		display: none !important;
+	}
 }
 
-menuseparator::before {
-	border-top: 1px #743ad5 solid !important;
+/* ---------- 2. Global ---------------------------------------------------- */
+
+* {
+	font-family: 'Victor Mono SemiBold' !important;
+	border-radius: 0px !important;
 }
 
-#appMenu-zoom-controls {
-	border-top: 1px #743ad5 solid !important;
+/* ---------- 3. Window chrome + layout ------------------------------------ */
+
+#zen-main-app-wrapper {
+	background: var(--zen-main-browser-background) !important;
 }
 
-menupopup::part(content),
-panel::part(content) {
-	border: 1px #743ad5 solid !important;
+#zen-browser-background {
+	--zen-main-browser-background: var(--bg) !important;
 }
 
-menupopup,
-panel {
-	--panel-background: #161925 !important;
+#browser {
+	background: unset !important;
 }
 
-.subviewbutton {
-	border: 1px transparent solid !important;
+:not([inDOMFullscreen='true']) #appcontent,
+#sidebar-box {
+	padding-left: 3px !important;
 }
 
-menu,
-menuitem {
-	border: 1px transparent solid !important;
-	padding-top: 0px !important;
-	padding-bottom: 0px !important;
-	height: var(--sw-height) !important;
+#navigator-toolbox {
+	margin-top: 8px !important;
+	margin-left: 8px !important;
+	padding: 0px !important;
+	--tab-hover-background-color: var(--toolbarbutton-hover-background) !important;
+}
+
+#titlebar,
+#TabsToolbar,
+#TabsToolbar .toolbar-items {
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+	margin-left: 0px !important;
+	padding-right: 0px !important;
+	padding-left: 0px !important;
 }
 
 #navigator-toolbox toolbar#TabsToolbar {
@@ -77,70 +96,127 @@ menuitem {
 	padding-bottom: 5px !important;
 }
 
-.tabbrowser-tab {
-	border: 1px transparent solid !important;
-	--tab-min-width: var(--sw-height) !important;
-	color: #eeeeff !important;
-	text-shadow: none !important;
-	height: var(--sw-height) !important;
-	min-height: unset !important;
-}
-
-.tabbrowser-tab:is([multiselected='true'], [selected]) {
-	background-color: #000000 !important;
-	border-image: linear-gradient(to left, #743ad5, #f222ff, #743ad5) 1 !important;
-	border-width: 1px !important;
-	border-style: solid !important;
-	text-shadow: 0 0 5px #fc199a !important;
-	color: #ffd318 !important;
-}
-
-#tabbrowser-tabs {
-	margin-top: 8px !important;
-}
-
-toolbarbutton {
-	--zen-sidebar-action-button-width: var(--sw-height) !important;
-	height: var(--zen-sidebar-action-button-width) !important;
-}
-
-hbox toolbarbutton {
-	width: var(--zen-sidebar-action-button-width) !important;
-	border: 1px transparent solid !important;
-	padding: 0px !important;
-	margin-top: auto !important;
-	margin-bottom: auto !important;
-}
-
-.tab-background {
-	margin-block: unset !important;
-	margin-inline: unset !important;
-	min-height: unset !important;
-	height: unset !important;
-}
-
-.tabbrowser-tab:hover {
-	border-image: linear-gradient(to left, #743ad5, #f222ff, #743ad5) 1 !important;
-	border-width: 1px !important;
-	border-style: solid !important;
-	scale: unset !important;
-}
-
-& #tabbrowser-tabbox #tabbrowser-tabpanels .browserSidebarContainer {
-	border: 1px #743ad5 solid !important;
-	background-color: #000000 !important;
+#tabbrowser-tabbox #tabbrowser-tabpanels .browserSidebarContainer {
+	border: 1px var(--acc1) solid !important;
+	background-color: var(--bg) !important;
 	box-shadow: 0 0 0 0px transparent !important;
 }
 
-& #titlebar,
-& #TabsToolbar,
-& #TabsToolbar .toolbar-items {
-	margin-top: 0px !important;
-	margin-bottom: 0px !important;
-	margin-left: 0px !important;
-	padding-right: 0px !important;
-	padding-left: 0px !important;
+/* Active split panel, same gradient as the active tab. Zen marks it with
+   outline: 2px solid var(--zen-active-split-outline-color); outline cannot take
+   a border-image, so the indicator moves to the border and the outline goes.
+   Two IDs (2,2,0) to outrank both the rule above and Zen's own (1,6,0). */
+#tabbrowser-tabbox #tabbrowser-tabpanels .browserSidebarContainer.deck-selected {
+	outline: none !important;
+	border-image: var(--accgrad) 1 !important;
+	border-width: 1px !important;
+	border-style: solid !important;
 }
+
+#zen-tabbox-wrapper {
+	margin-left: 2px !important;
+}
+
+#zen-tabs-wrapper {
+	max-height: unset !important;
+	margin-bottom: 3px !important;
+}
+
+.titlebar-buttonbox-container {
+	display: none !important;
+}
+
+/* ---------- 4. Tabs ------------------------------------------------------ */
+
+#tabbrowser-tabs {
+	margin-top: 0px !important;
+}
+
+#tabbrowser-arrowscrollbox .tabbrowser-tab:first-child:not([hidden]) {
+	margin-top: 0px !important;
+}
+
+#tabbrowser-arrowscrollbox::part(scrollbox) {
+	padding-top: 0px !important;
+}
+
+/* Transparent border reserved so hover/selected can add one without reflow. */
+.tabbrowser-tab {
+	border: 1px transparent solid !important;
+	--tab-min-width: var(--sw-height) !important;
+	color: var(--fg) !important;
+	text-shadow: none !important;
+	height: var(--sw-height) !important;
+	min-height: var(--sw-height) !important;
+}
+
+/* Zen's own tab fill layer — hidden so .tabbrowser-tab paints instead. */
+.tab-background {
+	display: none !important;
+}
+
+.tabbrowser-tab:is([multiselected='true'], [selected]),
+.tabbrowser-tab:hover {
+	border-image: var(--accgrad) 1 !important;
+	border-width: 1px !important;
+	border-style: solid !important;
+	background-color: var(--bg) !important;
+}
+
+.tabbrowser-tab:is([multiselected='true'], [selected]),
+.tab-content:is([selected], [multiselected]) {
+	color: var(--sel) !important;
+}
+
+.tabbrowser-tab:hover {
+	scale: unset !important;
+}
+
+.tab-label {
+	transition: opacity 0.2s;
+}
+
+.tabbrowser-tab:hover .tab-label {
+	opacity: 1 !important;
+	transition: none;
+}
+
+.tab-label-container {
+	height: unset !important;
+}
+
+.tab-icon-stack .tab-icon-image {
+	color: var(--acc2) !important;
+}
+
+.tab-icon-overlay:not([indicator-replaces-favicon]):is([soundplaying], [muted], [activemedia-blocked]) {
+	background-color: unset !important;
+	fill: var(--audio) !important;
+	top: unset !important;
+	inset-inline-end: 10px !important;
+}
+
+/* Unloaded tabs dim their label. The first rule always applies; the second is
+   Zen's own pref-gated version. */
+tab[pending='true'] > stack > hbox > vbox.tab-label-container > label.tab-text.tab-label {
+	opacity: 0.5;
+}
+
+@media (-moz-bool-pref: 'zen.tabs.dim-pending') {
+	#tabbrowser-tabs .tabbrowser-tab[pending='true'] .tab-label-container {
+		opacity: 0.5;
+	}
+}
+
+.tab-group-label-container {
+	display: none !important;
+}
+
+.pinned-tabs-container-separator toolbarseparator {
+	background: var(--acc1) !important;
+}
+
+/* ---------- 5. New Tab buttons ------------------------------------------- */
 
 #tabs-newtab-button {
 	opacity: unset !important;
@@ -155,55 +231,137 @@ hbox toolbarbutton {
 	margin-top: 0px !important;
 }
 
+#vertical-tabs-newtab-button {
+	background: unset !important;
+}
+
 .toolbarbutton-1:hover,
 #tabs-newtab-button:hover,
 #vertical-tabs-newtab-button:hover,
 #TabsToolbar #new-tab-button:hover,
 #new-tab-button:hover {
-	background-color: #2c3345 !important;
+	background-color: var(--bg) !important;
 }
 
-.toolbarbutton-badge-stack,
-.toolbarbutton-badge-stack:hover,
-.toolbarbutton-1,
-.toolbarbutton-icon,
-.toolbarbutton-icon:hover {
-	background-color: unset !important;
+#newtab-button-container::before {
+	background: var(--accgrad) !important;
 }
 
-#vertical-tabs-newtab-button {
-	width: 100% !important;
-	margin-top: 0px !important;
-	background: unset !important;
+.toolbarbutton-text[value='New Tab'] {
+	display: none !important;
 }
 
-& #tabbrowser-arrowscrollbox .tabbrowser-tab:first-child:not([hidden]) {
-	margin-top: 0px !important;
+#TabsToolbar-customization-target:after {
+	display: none !important;
 }
 
-& #tabbrowser-arrowscrollbox::part(scrollbox) {
-	padding-top: 0px !important;
+/* Pinned to the bottom of the scrollbox so it never scrolls with the tabs. */
+#tabbrowser-arrowscrollbox-periphery {
+	margin-left: auto !important;
+	margin-right: auto !important;
+	margin-inline: unset !important;
+	position: sticky !important;
+	bottom: 0 !important;
+	background: var(--zen-main-browser-background) !important;
+	z-index: 1 !important;
 }
+
+/* ---------- 6. URL bar --------------------------------------------------- */
 
 #urlbar {
 	font-size: unset !important;
-	border: 1px #743ad5 solid !important;
+	border: 1px var(--acc1) solid !important;
 	--urlbar-height: var(--sw-height) !important;
 	width: var(--urlbar-width) !important;
+	padding: 0px !important;
+	min-height: unset !important;
 }
 
-#urlbar,
 #searchbar {
 	min-height: unset !important;
 }
 
-.urlbar-input-container {
-	padding-top: 0px !important;
-	padding-bottom: 0px !important;
+/* Megabar. On focus #urlbar becomes position: absolute; Zen then widens it by
+   2 * --urlbar-margin-inline and pulls it left by one, which is what put the
+   panel out of line with the resting bar. Vertical placement is Zen's own
+   margin-block-start: --urlbar-margin-block-start-breakout — left in place,
+   with --urlbar-breakout-shift (see :root) as the override to nudge it.
+   The attribute is set via toggleAttribute, so its value is "" —
+   [breakout-extend='true'] matches nothing. */
+#urlbar[breakout][breakout-extend] {
+	margin-block-start: var(--urlbar-breakout-shift, var(--urlbar-margin-block-start-breakout)) !important;
+	margin-inline: 0 !important;
+	width: var(--urlbar-width) !important;
 }
 
-#urlbar {
+.urlbar-input-container {
+	margin: 0px !important;
 	padding: 0px !important;
+	background: var(--bg) !important;
+	width: 100% !important;
+	height: 30px !important;
+}
+
+.urlbar-input {
+	background-color: transparent !important;
+	color: var(--fg) !important;
+}
+
+.urlbar-background {
+	display: none !important;
+}
+
+#urlbar-background,
+#searchbar {
+	background-color: var(--bg) !important;
+	margin: 0px !important;
+}
+
+#urlbar[open] > #urlbar-background {
+	border: 0px !important;
+}
+
+#urlbar-zoom-button {
+	background-color: transparent !important;
+	max-height: 28px !important;
+}
+
+#urlbar-container,
+#search-container {
+	margin-inline: 2px !important;
+	--urlbar-container-height: var(--sw-height) !important;
+}
+
+.urlbar-page-action {
+	max-height: 100% !important;
+}
+
+.urlbar-icon,
+#identity-box,
+#tracking-protection-icon-container {
+	fill: var(--acc2) !important;
+}
+
+#identity-box[pageproxystate='valid']:is(.notSecureText, .chromeUI, .extensionPage) > .identity-box-button,
+#identity-box[pageproxystate='valid'] > .identity-box-button,
+#urlbar-label-box,
+.searchbar-engine-one-off-item,
+#urlbar .search-panel-one-offs-header-label {
+	color: var(--acc2) !important;
+}
+
+#identity-permission-box,
+#identity-icon-box {
+	background: transparent !important;
+}
+
+/* ---------- 7. URL bar results ------------------------------------------- */
+
+.urlbarView {
+	margin: 0px !important;
+	padding: 0px !important;
+	background: var(--bg) !important;
+	width: 100% !important;
 }
 
 .urlbarView-no-wrap {
@@ -214,92 +372,226 @@ hbox toolbarbutton {
 	flex-wrap: unset !important;
 }
 
-.urlbar-page-action {
-	max-height: 100% !important;
-}
-
-.urlbar-input {
-	background-color: transparent !important;
-	color: #eeeeff !important;
-}
-
-#urlbar-background,
-#searchbar {
-	background-color: #000000 !important;
-	margin: 0px !important;
-}
-
-#urlbar[open] > #urlbar-background {
-	border: 0px !important;
-}
-
-#urlbar-zoom-button {
-	background-color: transparent !important;
+#urlbar-results {
+	max-height: 272px !important;
 }
 
 .urlbarView:not([noresults]) > .search-one-offs:not([hidden]) {
 	border-top: 0px !important;
 }
 
-.urlbar-icon {
-	fill: #f222ff !important;
+#urlbar[open] > .urlbarView > .urlbarView-body-outer > .urlbarView-body-inner {
+	border-image: var(--accgrad) 1 !important;
+	border-width: 1px !important;
+	border-style: solid !important;
+	margin-bottom: -1px !important;
 }
 
-#identity-box,
-#tracking-protection-icon-container {
-	fill: #f222ff !important;
+/* Keep the gradient border inside the fixed width, instead of adding 2px to
+   one side and skewing the rows off centre. */
+.urlbarView-body-outer,
+.urlbarView-body-inner,
+.urlbarView-results {
+	box-sizing: border-box !important;
 }
 
-#identity-box[pageproxystate='valid']:is(.notSecureText, .chromeUI, .extensionPage) > .identity-box-button,
-#identity-box[pageproxystate='valid'] > .identity-box-button,
-#urlbar-label-box {
-	color: #f222ff !important;
+.urlbarView-row {
+	height: var(--sw-height) !important;
+	min-height: unset !important;
+	border: 1px transparent solid !important;
+	margin-inline: 8px !important;
+	fill: var(--acc2) !important;
 }
 
-.searchbar-engine-one-off-item {
-	color: #f222ff !important;
+.urlbarView-row[row-selectable]:not([selected]):hover,
+.urlbarView-row[selected] {
+	border-image: var(--accgrad) 1 !important;
+	border-width: 1px !important;
+	border-style: solid !important;
 }
 
-#urlbar-container {
-	--urlbar-container-height: var(--sw-height) !important;
+.urlbarView-row[row-selectable]:not([selected]):hover {
+	background-color: var(--bg) !important;
 }
 
-#urlbar-container,
-#search-container {
-	margin-inline: 2px !important;
-	--urlbar-container-height: var(--sw-height) !important;
+.urlbarView-row[selected] {
+	background-color: transparent !important;
 }
 
-#identity-permission-box {
-	background: transparent !important;
+.urlbarView-row:not([selected]) .urlbarView-title {
+	color: var(--fg) !important;
 }
 
-#urlbar .search-panel-one-offs-header-label {
-	color: #f222ff !important;
+.urlbarView-row:not([selected]) .urlbarView-url {
+	color: var(--fg) !important;
+	opacity: 0.5 !important;
+}
+
+.urlbarView-row:is([selected]) .urlbarView-title,
+.urlbarView-row:hover .urlbarView-title {
+	color: var(--sel) !important;
+	text-shadow: var(--glow) !important;
+}
+
+.urlbarView-row:is([selected]) .urlbarView-url,
+.urlbarView-row:hover .urlbarView-url {
+	color: var(--sel) !important;
+	opacity: 1 !important;
+	text-shadow: var(--glow) !important;
+}
+
+/* ---------- 8. Menus + panels -------------------------------------------- */
+
+/* --panel-background does not exist. The real token is --panel-background-color
+   and it defaults to the system Menu colour, which is what kept popups light. */
+menupopup,
+panel {
+	--panel-background-color: var(--zen-main-browser-background) !important;
+}
+
+/* ::part(content) is where the background is actually painted, so set it here
+   directly rather than trusting the token chain. */
+menupopup::part(content),
+panel::part(content) {
+	background: var(--bg) !important;
+	border: 1px var(--acc1) solid !important;
+}
+
+/* Tooltips are native anonymous content that GTK paints (appearance: auto with
+   -moz-default-appearance: tooltip), so appearance has to go off before any
+   border renders. The UA rules in xul.css are not !important, so these win.
+   Background/colour come along because appearance: none would otherwise expose
+   the system InfoBackground, which is light. */
+tooltip {
+	appearance: none !important;
+	-moz-default-appearance: none !important;
+	background-color: var(--bg) !important;
+	color: var(--fg) !important;
+	border: 1px solid var(--acc1) !important;
+}
+
+panelmultiview,
+.menupopup-arrowscrollbox {
+	border-image: var(--accgrad) 1 !important;
+	border-width: 1px !important;
+	border-style: solid !important;
+}
+
+panel toolbarseparator,
+#appMenu-zoom-controls,
+menuseparator::before {
+	border-top: 1px var(--acc1) solid !important;
+}
+
+menu,
+menuitem {
+	border: 1px transparent solid !important;
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+	height: var(--sw-height) !important;
+}
+
+menu:where([_moz-menuactive]:not([disabled='true'])),
+menuitem:where([_moz-menuactive]:not([disabled='true'])) {
+	border-image: var(--accgrad) 1 !important;
+	border-width: 1px !important;
+	border-style: solid !important;
+	background-color: var(--bg) !important;
+}
+
+.subviewbutton {
+	border: 1px transparent solid !important;
+}
+
+:is(
+		panelview .toolbarbutton-1,
+		toolbarbutton.subviewbutton,
+		.widget-overflow-list .toolbarbutton-1,
+		.toolbaritem-combined-buttons:is(:not([cui-areatype='toolbar']), [overflowedItem='true']) > toolbarbutton
+	):not([disabled]):hover {
+	border-image: var(--accgrad) 1 !important;
+	border-width: 1px !important;
+	border-style: solid !important;
+	background-color: var(--bg) !important;
+}
+
+/* ---------- 9. Toolbar buttons + icons ----------------------------------- */
+
+toolbarbutton {
+	--zen-sidebar-action-button-width: var(--sw-height) !important;
+	height: var(--zen-sidebar-action-button-width) !important;
+}
+
+hbox toolbarbutton {
+	width: var(--zen-sidebar-action-button-width) !important;
+	border: 1px transparent solid !important;
+	padding: 0px !important;
+	margin-top: auto !important;
+	margin-bottom: auto !important;
+}
+
+toolbarbutton:not([disabled]):hover {
+	border-image: var(--accgrad) 1 !important;
+	border-width: 1px !important;
+	border-style: solid !important;
+}
+
+.toolbarbutton-badge-stack,
+.toolbarbutton-badge-stack:hover,
+.toolbarbutton-1,
+.toolbarbutton-icon,
+.toolbarbutton-icon:hover {
+	background-color: unset !important;
+}
+
+.toolbarbutton-animatable-box,
+.toolbarbutton-1 {
+	fill: var(--acc2) !important;
+}
+
+/* Icon-only buttons. NOTE: subview and app-menu item labels are also
+   .toolbarbutton-text, so this hides those too. */
+.toolbarbutton-text {
+	display: none !important;
+}
+
+#PanelUI-menu-button {
+	margin-right: 8px !important;
+}
+
+#nav-bar-customization-target > :is(toolbarbutton, toolbaritem):first-child,
+#nav-bar-customization-target > toolbarpaletteitem:first-child > :is(toolbarbutton, toolbaritem) {
+	padding-inline-start: 0px !important;
+}
+
+/* ---------- 10. Sidebar + workspaces ------------------------------------- */
+
+#zen-sidebar-web-panel {
+	border: 1px var(--acc1) solid !important;
+	background: var(--zen-main-browser-background) !important;
 }
 
 #zen-sidebar-icons-wrapper::before {
-	background: linear-gradient(to left, #743ad5, #f222ff, #743ad5) !important;
-}
-
-#zen-sidebar-web-panel {
-	border: 1px #743ad5 solid !important;
-	background: #161925 !important;
+	background: var(--accgrad) !important;
 }
 
 #zen-sidebar-icons-wrapper {
 	display: none !important;
-	margin-top: 0px !important;
+	--zen-sidebar-action-content-separator: 7px !important;
+	margin-top: var(--zen-sidebar-action-content-separator) !important;
 	margin-bottom: 0px !important;
 	margin-left: 2px !important;
 	margin-right: 0px !important;
 	padding: 0px !important;
-	--zen-sidebar-action-content-separator: 7px !important;
 	padding-top: var(--zen-sidebar-action-content-separator) !important;
-	margin-top: var(--zen-sidebar-action-content-separator) !important;
 }
 
 #zen-sidebar-top-buttons {
+	min-height: unset !important;
+	margin-bottom: 8px !important;
+}
+
+#zen-sidebar-bottom-buttons {
 	display: none !important;
 }
 
@@ -307,34 +599,82 @@ hbox toolbarbutton {
 	border: 0px !important;
 }
 
-#zen-current-workspace-indicator {
-	display: none !important;
-}
-
-.titlebar-buttonbox-container {
-	display: none !important;
-}
-
-.toolbarbutton-animatable-box,
-.toolbarbutton-1 {
-	fill: #f222ff !important;
-}
-
-.tab-icon-stack .tab-icon-image {
-	color: #f222ff !important;
-}
-
-#identity-icon-box {
-	background: transparent !important;
-}
-
-#PanelUI-menu-button {
-	margin-right: 8px !important;
-}
-
 #zen-profile-button::before {
 	left: inherit !important;
 }
+
+#zen-essentials-container {
+	padding-bottom: var(--sw-padding-bottom) !important;
+}
+
+.zen-essentials-container {
+	gap: 0px !important;
+}
+
+#zen-current-workspace-indicator,
+.zen-current-workspace-indicator {
+	display: none !important;
+}
+
+/* 'zen.workspaces.show-workspace-indicator' was removed upstream. Add it to
+   about:config as false if it is not defined.
+   https://github.com/zen-browser/desktop/commit/a7d0719877d34a3cdc4b82ce013b7e7bdbaa4cf6 */
+@media not -moz-pref('zen.workspaces.show-workspace-indicator') {
+	#zen-current-workspace-indicator-container {
+		display: none !important;
+	}
+}
+
+.zen-workspace-close-unpinned-tabs-button {
+	display: none !important;
+}
+
+/* ---------- 11. Find bar ------------------------------------------------- */
+
+findbar {
+	background: var(--zen-main-browser-background) !important;
+	border-top: 1px var(--acc1) solid !important;
+	padding-top: 8px !important;
+	padding-bottom: 8px !important;
+}
+
+findbar toolbarbutton {
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+}
+
+.findbar-container {
+	height: inherit !important;
+}
+
+.findbar-textbox {
+	border: 1px solid var(--acc1) !important;
+	height: var(--sw-height) !important;
+	background: var(--bg) !important;
+}
+
+.findbar-find-previous,
+.findbar-find-next,
+.findbar-closebutton {
+	align-items: center !important;
+	fill: var(--acc2) !important;
+}
+
+/* Was `16px p` — an invalid value the parser dropped, so these were unsized. */
+.findbar-find-previous image,
+.findbar-find-next image,
+.findbar-closebutton image {
+	width: 16px !important;
+	height: 16px !important;
+}
+
+.findbar-find-previous label,
+.findbar-find-next label,
+.findbar-closebutton label {
+	display: none !important;
+}
+
+/* ---------- 12. Split view ----------------------------------------------- */
 
 #tabbrowser-tabpanels:has(> [zen-split='true']) {
 	display: flex !important;
@@ -353,348 +693,34 @@ tab-group[split-view-group] {
 	scale: unset !important;
 }
 
-findbar {
-	background: #161925 !important;
-	border-top: 1px #743ad5 solid !important;
-	padding-bottom: 8px !important;
-	padding-top: 8px !important;
+/* Joined tabs. The fill is on .tab-group-container, not the tab-group itself:
+   Zen gives it background-color: var(--tab-background-color-selected) when the
+   group holds the active or a multiselected tab. The second selector matches
+   Zen's own specificity so source order decides. */
+tab-group[split-view-group] .tab-group-container,
+tab-group[split-view-group] .tab-group-container:has(> tab:is([multiselected])) {
+	background-color: var(--bg) !important;
 }
 
-findbar toolbarbutton {
-	margin-top: 0px !important;
-	margin-bottom: 0px !important;
+/* Splitter header pill, shown on hover. -header-container is only the
+   positioning layer (opacity 0 until hovered); -header is what paints, and it
+   ships no border at all — just a background and a soft shadow. */
+.zen-view-splitter-header {
+	background-color: var(--bg) !important;
+	border-image: var(--accgrad) 1 !important;
+	border-width: 1px !important;
+	border-style: solid !important;
+	box-sizing: border-box !important;
 }
 
-.findbar-container {
-	height: inherit !important;
+/* Zen derives the icon colour with contrast-color() from the old light fill,
+   which lands near-invisible on black. Its buttons are fill: currentColor,
+   so setting color recolours them. */
+.zen-view-splitter-header-container toolbarbutton {
+	color: var(--fg) !important;
+	opacity: 1 !important;
 }
 
-.findbar-textbox {
-	border: 1px solid #743ad5 !important;
-	height: var(--sw-height) !important;
-	background: #000000 !important;
-}
-
-.findbar-find-previous,
-.findbar-find-next,
-.findbar-closebutton {
-	align-items: center !important;
-	fill: #f222ff !important;
-}
-
-.findbar-find-previous image,
-.findbar-find-next image,
-.findbar-closebutton image {
-	width: 16px p !important;
-	height: 16px p !important;
-}
-
-.findbar-find-previous label,
-.findbar-find-next label,
-.findbar-closebutton label {
+.zen-split-view-splitter {
 	display: none !important;
-}
-
-.tab-label-container {
-	height: unset !important;
-}
-
-#tabbrowser-arrowscrollbox-periphery {
-	margin-left: auto !important;
-	margin-right: auto !important;
-	margin-inline: unset !important;
-	position: sticky !important;
-	bottom: 0 !important;
-	background: #161925 !important;
-	z-index: 1 !important;
-}
-
-#navigator-toolbox {
-	margin-top: 8px !important;
-	margin-left: 8px !important;
-	padding: 0px !important;
-	--tab-hover-background-color: var(--toolbarbutton-hover-background) !important;
-}
-
-#TabsToolbar-customization-target:after {
-	display: none !important;
-}
-
-.toolbarbutton-text[value='New Tab'] {
-	display: none !important;
-}
-
-#browser {
-	background: unset !important;
-}
-
-#zen-tabbox-wrapper {
-	margin-left: 2px !important;
-}
-
-#zen-tabs-wrapper {
-	max-height: unset !important;
-	margin-bottom: 3px !important;
-}
-
-#zen-sidebar-bottom-buttons {
-	display: none !important;
-}
-
-.tab-close-button {
-	display: none !important;
-}
-
-#zen-essentials-container {
-	padding-bottom: var(--sw-padding-bottom) !important;
-}
-
-:is(
-		panelview .toolbarbutton-1,
-		toolbarbutton.subviewbutton,
-		.widget-overflow-list .toolbarbutton-1,
-		.toolbaritem-combined-buttons:is(:not([cui-areatype='toolbar']), [overflowedItem='true']) > toolbarbutton
-	) {
-	&:not([disabled]):hover {
-		border-image: linear-gradient(to left, #743ad5, #f222ff, #743ad5) 1 !important;
-		border-width: 1px !important;
-		border-style: solid !important;
-	}
-}
-
-menu,
-menuitem {
-	&:where([_moz-menuactive]:not([disabled='true'])) {
-		border-image: linear-gradient(to left, #743ad5, #f222ff, #743ad5) 1 !important;
-		border-width: 1px !important;
-		border-style: solid !important;
-	}
-}
-
-#tabbrowser-tabs {
-	& .tabbrowser-tab {
-		&[selected] .tab-background {
-			background: #000 !important;
-		}
-	}
-}
-
-#tabbrowser-tabs {
-	& .tabbrowser-tab {
-		@media (-moz-bool-pref: 'zen.tabs.dim-pending') {
-			&[pending='true'] .tab-label-container {
-				opacity: 0.5;
-			}
-		}
-	}
-}
-
-:is(toolbarbutton) {
-	&:not([disabled]):hover {
-		border-image: linear-gradient(to left, #743ad5, #f222ff, #743ad5) 1 !important;
-		border-width: 1px !important;
-		border-style: solid !important;
-	}
-
-	& .tabbrowser-tab {
-		@media (-moz-bool-pref: 'zen.tabs.dim-pending') {
-			&[pending='true'] .tab-label-container {
-				opacity: 0.5;
-			}
-		}
-	}
-}
-
-#newtab-button-container {
-	&::before {
-		background: linear-gradient(to left, #743ad5, #f222ff, #743ad5) !important;
-	}
-
-	& .tabbrowser-tab {
-		@media (-moz-bool-pref: 'zen.tabs.dim-pending') {
-			&[pending='true'] .tab-label-container {
-				opacity: 0.5;
-			}
-		}
-	}
-}
-
-.urlbarView-body-inner {
-	#urlbar[open] > .urlbarView > .urlbarView-body-outer > & {
-		border-image: linear-gradient(to left, #743ad5, #f222ff, #743ad5) 1 !important;
-		border-width: 1px !important;
-		border-style: solid !important;
-		margin-bottom: -1px !important;
-	}
-
-	& .tabbrowser-tab {
-		@media (-moz-bool-pref: 'zen.tabs.dim-pending') {
-			&[pending='true'] .tab-label-container {
-				opacity: 0.5;
-			}
-		}
-	}
-}
-
-.urlbarView-title {
-	.urlbarView-row:not([selected]) & {
-		color: #eeeeff !important;
-	}
-
-	& .tabbrowser-tab {
-		@media (-moz-bool-pref: 'zen.tabs.dim-pending') {
-			&[pending='true'] .tab-label-container {
-				opacity: 0.5;
-			}
-		}
-	}
-}
-
-.urlbarView-title {
-	.urlbarView-row:is([selected]) & {
-		color: #ffd318 !important;
-		text-shadow: 0 0 5px #fc199a !important;
-	}
-
-	& .tabbrowser-tab {
-		@media (-moz-bool-pref: 'zen.tabs.dim-pending') {
-			&[pending='true'] .tab-label-container {
-				opacity: 0.5;
-			}
-		}
-	}
-}
-
-.urlbarView-title {
-	.urlbarView-row:hover & {
-		color: #ffd318 !important;
-		text-shadow: 0 0 5px #fc199a !important;
-	}
-
-	& .tabbrowser-tab {
-		@media (-moz-bool-pref: 'zen.tabs.dim-pending') {
-			&[pending='true'] .tab-label-container {
-				opacity: 0.5;
-			}
-		}
-	}
-}
-
-.urlbarView-url {
-	.urlbarView-row:not([selected]) & {
-		color: #eeeeff !important;
-		opacity: 0.5 !important;
-	}
-
-	& .tabbrowser-tab {
-		@media (-moz-bool-pref: 'zen.tabs.dim-pending') {
-			&[pending='true'] .tab-label-container {
-				opacity: 0.5;
-			}
-		}
-	}
-}
-
-.urlbarView-url {
-	.urlbarView-row:is([selected]) & {
-		color: #ffd318 !important;
-		opacity: 1 !important;
-		text-shadow: 0 0 5px #fc199a !important;
-	}
-
-	& .tabbrowser-tab {
-		@media (-moz-bool-pref: 'zen.tabs.dim-pending') {
-			&[pending='true'] .tab-label-container {
-				opacity: 0.5;
-			}
-		}
-	}
-}
-
-.urlbarView-url {
-	.urlbarView-row:hover & {
-		color: #ffd318 !important;
-		opacity: 1 !important;
-		text-shadow: 0 0 5px #fc199a !important;
-	}
-
-	& .tabbrowser-tab {
-		@media (-moz-bool-pref: 'zen.tabs.dim-pending') {
-			&[pending='true'] .tab-label-container {
-				opacity: 0.5;
-			}
-		}
-	}
-}
-
-.urlbarView-row {
-	height: var(--sw-height) !important;
-	min-height: unset !important;
-	border: 1px transparent solid !important;
-	margin-left: 1px !important;
-	margin-right: 3px !important;
-	fill: #f222ff !important;
-	&[row-selectable]:not([selected]):hover {
-		background-color: #2c3345 !important;
-		border-image: linear-gradient(to left, #743ad5, #f222ff, #743ad5) 1 !important;
-		border-width: 1px !important;
-		border-style: solid !important;
-	}
-
-	& .tabbrowser-tab {
-		@media (-moz-bool-pref: 'zen.tabs.dim-pending') {
-			&[pending='true'] .tab-label-container {
-				opacity: 0.5;
-			}
-		}
-	}
-}
-
-.urlbarView-row {
-	&[selected] {
-		background-color: transparent !important;
-		border-image: linear-gradient(to left, #743ad5, #f222ff, #743ad5) 1 !important;
-		border-width: 1px !important;
-		border-style: solid !important;
-	}
-
-	& .tabbrowser-tab {
-		@media (-moz-bool-pref: 'zen.tabs.dim-pending') {
-			&[pending='true'] .tab-label-container {
-				opacity: 0.5;
-			}
-		}
-	}
-}
-
-#nav-bar-customization-target {
-	& > :is(toolbarbutton, toolbaritem):first-child,
-	& > toolbarpaletteitem:first-child > :is(toolbarbutton, toolbaritem) {
-		padding-inline-start: 0px !important;
-	}
-
-	& .tabbrowser-tab {
-		@media (-moz-bool-pref: 'zen.tabs.dim-pending') {
-			&[pending='true'] .tab-label-container {
-				opacity: 0.5;
-			}
-		}
-	}
-}
-
-.tab-icon-overlay {
-	&:not([indicator-replaces-favicon]) {
-		&:is([soundplaying], [muted], [activemedia-blocked]) {
-			background-color: unset !important;
-			fill: #ffd318 !important;
-			top: unset !important;
-			inset-inline-end: 10px !important;
-		}
-
-		@media (-moz-bool-pref: 'zen.tabs.dim-pending') {
-			&[pending='true'] .tab-label-container {
-				opacity: 0.5;
-			}
-		}
-	}
 }
