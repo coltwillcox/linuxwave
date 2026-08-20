@@ -1,232 +1,187 @@
-@define-color color1 #f222ff;
-@define-color color2 #743ad5;
-@define-color color3 #fc199a;
-@define-color color4 #161925;
-@define-color color5 #ffd318;
-@define-color color6 #ff79c6;
+@define-color color1 #00FF00;
+@define-color color2 #743AD5;
+@define-color color3 #FFFFFF;
+@define-color color4 #000000;
+@define-color color5 #FFD318;
+@define-color color7 #F222FF;
 
 * {
 	border: none;
 	border-radius: 0;
-	font-family: Victor Mono;
+	font-family: Victor Mono SemiBold;
 	font-size: 18px;
-	font-weight: bold;
-	text-shadow: 0 0 5px @color3;
 }
 
-#workspaces {
-	margin-top: 8px;
-	margin-left: 9px;
-	margin-bottom: 0;
-	border: 1px solid transparent;
-}
-
-#workspaces button {
-	transition: none;
-	color: @color1;
-	background: @color4;
-	font-size: 16px;
-	text-shadow: 0 0 5px @color3;
-	padding: 0px 12px 0px 12px;
-	transition-property: color;
-	transition-duration: 0.3s;
-}
-
-#workspaces button:nth-child(1) {
-	margin-top: -1px;
-	margin-bottom: -1px;
-	border-top: 1px solid @color2;
-	border-bottom: 1px solid @color2;
-	border-left: 1px solid @color2;
-	border-radius: 0;
-}
-
-#workspaces button:nth-child(4),
-#workspaces button:nth-child(8) {
-	margin-top: -1px;
-	margin-bottom: -1px;
-	border-top: 1px solid @color2;
-	border-bottom: 1px solid @color2;
-	border-left: 1px solid @color2;
-	border-radius: 0;
-}
-
-#workspaces button:nth-child(2),
-#workspaces button:nth-child(5),
-#workspaces button:nth-child(6),
-#workspaces button:nth-child(9) {
-	margin-top: -1px;
-	margin-bottom: -1px;
-	border-top: 1px solid @color2;
-	border-bottom: 1px solid @color2;
-}
-
-#workspaces button:nth-child(3),
-#workspaces button:nth-child(7) {
-	margin-right: 10px;
-	margin-top: -1px;
-	margin-bottom: -1px;
-	border-top: 1px solid @color2;
-	border-bottom: 1px solid @color2;
-	border-right: 1px solid @color2;
-	border-radius: 0;
-}
-
-#workspaces button:nth-child(10) {
-	margin-top: -1px;
-	margin-bottom: -1px;
-	border-top: 1px solid @color2;
-	border-bottom: 1px solid @color2;
-	border-right: 1px solid @color2;
-	border-radius: 0;
-}
-
-#workspaces button.active {
-	color: @color5;
-}
-
-#workspaces button:hover {
-	transition: none;
-	box-shadow: inherit;
-	text-shadow: inherit;
-	color: @color6;
-}
-
+/* ── Waybar window ─────────────────────────────────────────── */
 window#waybar {
 	background: transparent;
 }
-
 window#waybar.hidden {
 	opacity: 0.2;
 }
-
 window#waybar.empty #window {
 	background: none;
 	border: none;
 }
 
-#window {
-	background: @color4;
-	border: 1px solid;
-	border-image-slice: 1;
-	border-image-source: linear-gradient(to left, @color2, @color1, @color2);
-	margin-bottom: 0;
-	margin-left: 8px;
-	margin-right: 8px;
-	margin-top: 8px;
-	padding: 6px 16px 6px 16px;
+/* ── Shared module base ────────────────────────────────────── */
+#cpu,
+#memory,
+#temperature,
+#custom-netspeed,
+#wireplumber {
+	margin: 8px 0 0;
+	border-top: 1px solid @color2;
+	border-bottom: 1px solid @color2;
 	color: @color1;
-	transition-property: background, border;
-	transition-duration: 0.3s;
+	background: @color4;
+}
+
+#cpu,
+#memory,
+#temperature,
+#custom-netspeed {
+	padding: 6px 8px 6px 16px;
 }
 
 #cpu {
-	margin: 8px 0px 0px 0px;
-	padding: 6px 8px 6px 16px;
-	border-top: 1px solid @color2;
-	border-bottom: 1px solid @color2;
 	border-left: 1px solid @color2;
-	border-radius: 0;
-	color: @color1;
-	background: @color4;
-}
-
-#memory {
-	margin: 8px 0px 0px 0px;
-	padding: 6px 8px 6px 16px;
-	border-top: 1px solid @color2;
-	border-bottom: 1px solid @color2;
-	transition: none;
-	color: @color1;
-	background: @color4;
-}
-
-#temperature {
-	margin: 8px 0px 0px 0px;
-	padding: 6px 8px 6px 16px;
-	border-top: 1px solid @color2;
-	border-bottom: 1px solid @color2;
-	transition: none;
-	color: @color1;
-	background: @color4;
-}
-
-#custom-netspeed {
-	margin: 8px 0px 0px 0px;
-	padding: 6px 8px 6px 16px;
-	border-top: 1px solid @color2;
-	border-bottom: 1px solid @color2;
-	transition: none;
-	color: @color1;
-	background: @color4;
 }
 
 #wireplumber {
-	margin: 8px 0px 0px 0px;
 	padding: 6px 16px 6px 8px;
+	border-right: 1px solid @color2;
+}
+
+/* ── Window title ──────────────────────────────────────────── */
+#window {
+	margin: 8px 8px 0;
+	padding: 6px 16px;
+	background: @color4;
+	color: @color1;
+	border: 1px solid;
+	border-image-slice: 1;
+	border-image-source: linear-gradient(to left, @color2, @color7, @color2);
+	transition:
+		background,
+		border 0.3s;
+}
+
+/* ── Workspaces ────────────────────────────────────────────── */
+#workspaces {
+	margin: 8px 0 0 9px;
+	border: 1px solid transparent;
+}
+
+#workspaces button {
+	color: @color1;
+	background: @color4;
+	font-size: 16px;
+	padding: 0 12px;
+	transition: color 0.3s;
+}
+
+/* All bordered buttons share top/bottom border and -1px margin compensation */
+#workspaces button:nth-child(n + 1):nth-child(-n + 10) {
+	margin-top: -1px;
+	margin-bottom: -1px;
 	border-top: 1px solid @color2;
 	border-bottom: 1px solid @color2;
+}
+
+/* Left border */
+#workspaces button:nth-child(1),
+#workspaces button:nth-child(4),
+#workspaces button:nth-child(8) {
+	border-left: 1px solid @color2;
+}
+
+/* Right border + margin */
+#workspaces button:nth-child(3),
+#workspaces button:nth-child(7) {
+	margin-right: 10px;
 	border-right: 1px solid @color2;
-	border-radius: 0;
-	transition: none;
-	color: @color1;
-	background: @color4;
 }
 
-#tray {
-	margin-top: 8px;
-	margin-left: 10px;
-	padding: 6px 16px 6px 16px;
-	margin-bottom: 0px;
-	border-radius: 0;
-	transition: none;
-	color: @color1;
-	background: @color4;
-	border: 1px solid @color2;
+#workspaces button:nth-child(10) {
+	border-right: 1px solid @color2;
 }
 
-#tray menu {
-	margin-top: 8px;
-	margin-left: 8px;
-	padding: 6px 16px 6px 16px;
-	margin-bottom: 0;
-	border-radius: 0;
+/* Per-button colors */
+#workspaces button:nth-child(1),
+#workspaces button:nth-child(10) {
+	color: #743ad5;
+}
+#workspaces button:nth-child(2),
+#workspaces button:nth-child(9) {
+	color: #9434e0;
+}
+#workspaces button:nth-child(3),
+#workspaces button:nth-child(8) {
+	color: #b32eea;
+}
+#workspaces button:nth-child(4),
+#workspaces button:nth-child(7) {
+	color: #d328f5;
+}
+#workspaces button:nth-child(5),
+#workspaces button:nth-child(6) {
+	color: #f222ff;
+}
+
+/* #workspaces button.active { color: @color1; } */
+#workspaces button.active {
+	/* background-color: #2c3345; */
+	color: @color1;
+}
+#workspaces button:hover {
+	/* background-color: #2c3345; */
+	color: @color3;
 	transition: none;
+}
+
+/* ── Tray & Clock ──────────────────────────────────────────── */
+#tray,
+#clock {
+	margin: 8px 0 0 10px;
+	padding: 6px 16px;
 	color: @color1;
 	background: @color4;
 	border: 1px solid @color2;
 }
 
 #clock {
-	margin-top: 8px;
-	margin-left: 10px;
 	margin-right: 10px;
-	padding: 6px 16px 6px 16px;
-	margin-bottom: 0;
-	border-radius: 0;
-	transition: none;
-	color: @color5;
+}
+
+#tray menu {
+	margin: 8px 0 0 8px;
+	padding: 6px 16px;
+	color: @color1;
 	background: @color4;
 	border: 1px solid @color2;
 }
 
+/* ── Tooltip ───────────────────────────────────────────────── */
 tooltip {
 	background: @color4;
 	border: 1px solid @color2;
-	border-radius: 0;
 }
-
 tooltip label {
-	color: @color5;
+	color: @color1;
 }
 
+/* ── Cava visualizer ───────────────────────────────────────── */
 #custom-cavaleft,
 #custom-cavaright {
 	margin-top: 8px;
-	padding: 6px 16px 6px 16px;
+	padding: 6px 16px;
 	border: 1px solid @color2;
-	color: @color1;
+	color: @color7;
 	background: @color4;
+}
+
+#custom-cavaleft .flat,
+#custom-cavaright .flat {
 	font-family: 'bargraph';
-	background: @color4;
 }

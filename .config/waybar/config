@@ -38,24 +38,26 @@
 				"8": [],
 				"9": [],
 				"10": []
+
 			},
 			"format-icons": {
-				"1": "\udb80\ude39",
-				"2": "\uf277",
-				"3": "\udb80\uddda",
-				"4": "\udb82\udeb6",
-				"5": "\udb80\ude39",
-				"6": "\udb82\ude1e",
-				"7": "\udb80\udc3b",
-				"8": "\uf489",
-				"9": "\uebaf",
-				"10": "\udb84\udeca",
-				"default": "\udb86\udd78"
+				"1": "",
+				"2": "",
+				"3": "",
+				"4": "",
+				"5": "",
+				"6": "",
+				"7": "",
+				"8": "",
+				"9": "",
+				"10": "",
+				"default": "_"
 			}
 		},
 		"custom/cavaleft": {
-			"exec": "cava -p ~/.config/cava/configleft | sed -u 's/;//g;s/0/0/g;s/1/1/g;s/2/2/g;s/3/3/g;s/4/4/g;s/5/5/g;s/6/6/g;s/7/7/g;s/8/8/g;s/9/9/g;'",
-			"tooltip": true
+			"exec": "cava -p ~/.config/cava/configleft | sed -u 's/;//g' | awk 'BEGIN{OFS=\"\"}{n=length($0);out=\"\";for(i=1;i<=n;i++){t=(n>1)?(i-1)/(n-1):0;r=int(116+t*(242-116));g=int(58+t*(34-58));b=int(213+t*(255-213));out=out sprintf(\"<span color=\\\"#%02x%02x%02x\\\">%s</span>\",r,g,b,substr($0,i,1))};print out;fflush()}'",
+    		"tooltip": false,
+    		"escape": false
 		},
 		"hyprland/window": {
 			"format": "{title}",
@@ -63,17 +65,18 @@
 			"all-outputs": true
 		},
 		"custom/cavaright": {
-			"exec": "cava -p ~/.config/cava/configright | sed -u 's/;//g;s/0/0/g;s/1/1/g;s/2/2/g;s/3/3/g;s/4/4/g;s/5/5/g;s/6/6/g;s/7/7/g;s/8/8/g;s/9/9/g;'",
-			"tooltip": true
+			"exec": "cava -p ~/.config/cava/configright | sed -u 's/;//g' | awk 'BEGIN{OFS=\"\"}{n=length($0);out=\"\";for(i=1;i<=n;i++){t=(n>1)?(i-1)/(n-1):0;r=int(242+t*(116-242));g=int(34+t*(58-34));b=int(255+t*(213-255));out=out sprintf(\"<span color=\\\"#%02x%02x%02x\\\">%s</span>\",r,g,b,substr($0,i,1))};print out;fflush()}'",
+    		"tooltip": false,
+    		"escape": false
 		},
 		"cpu": {
 			"tooltip": true,
-			"format": "\uf4bc {usage}%",
+			"format": "<span color='#743AD5'>\uf4bc</span> {usage}%",
 			"interval": 1
 		},
 		"memory": {
 			"tooltip": true,
-			"format": "\ue266 {}%",
+			"format": "<span color='#A630E6'>\ue266</span> {}%",
 			"interval": 1
 		},
 		"temperature": {
@@ -81,11 +84,11 @@
 			"hwmon-path": [
 				"/sys/class/hwmon/hwmon2/temp1_input"
 			],
-			"format": "\udb81\udd0f{temperatureC}\udb81\udd04",
+			"format": "<span color='#F222FF'>\udb81\udd0f</span>{temperatureC}\udb81\udd04",
 			"interval": 1
 		},
 		"custom/netspeed": {
-			"exec": "~/scripts/netspeed.sh",
+			"exec": "~/.config/waybar/scripts/netspeed.sh",
 			"format": "{}",
 			"tooltip": true,
 			"return-type": "json"
@@ -96,8 +99,8 @@
 			"tooltip": true,
 			"tooltip-format": "{volume}%",
 			"scroll-step": 5,
-			"format": "{icon} {volume}%",
-			"format-muted": "\udb81\udf5f {volume}%",
+			"format": "<span color='#743AD5'>{icon}</span> {volume}%",
+			"format-muted": "<span color='#743AD5'>\udb81\udf5f</span> {volume}%",
 			"format-icons": {
 				"default": [
 					"\udb81\udd7f",
@@ -112,7 +115,7 @@
 			"show-passive-items": true
 		},
 		"clock": {
-			"format": "\uf017 {:%H:%M %d-%m}",
+			"format": "{:%d-%m %H:%M}",
 			"tooltip-format": "{calendar}",
 			"calendar": {
 				"mode": "year",
@@ -121,10 +124,10 @@
 				"on-click-right": "mode",
 				"format": {
 					"months": "<span color='#F222FF'>{}</span>",
-					"days": "<span color='#F222FF'>{}</span>",
+					"days": "<span color='#00FF00'>{}</span>",
 					"weeks": "<span color='#F222FF'>{}</span>",
-					"weekdays": "<span color='#FFD318'>{}</span>",
-					"today": "<span color='#FFD318'>{}</span>"
+					"weekdays": "<span color='#F222FF'>{}</span>",
+					"today": "<span color='#F222FF'>{}</span>"
 				}
 			}
 		}

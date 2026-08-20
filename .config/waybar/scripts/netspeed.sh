@@ -2,8 +2,8 @@
 
 setopt sh_word_split
 
-max_download=419430400 # ~400 Mbps
-max_upload=31457280    # ~30 Mbps
+max_download=600000000 # ~600 Mbps
+max_upload=60000000    # ~60 Mbps
 download_icon="\udb83\uddb9"
 upload_icon="\udb83\uddbc"
 
@@ -22,7 +22,7 @@ while :; do
 	if [ $upload_percentage -lt 0 ]; then upload_percentage=0; fi
 	if [ $upload_percentage -gt 100 ]; then upload_percentage=100; fi
 
-	text="$download_icon$download_percentage%$upload_percentage$upload_icon"
+	text="<span color='#F222FF'>$download_icon</span>$download_percentage%$upload_percentage<span color='#A630E6'>$upload_icon</span>"
 	tooltip="$download_icon$array[1] $upload_icon$array[2]"
 
 	printf '{"text": "%s", "tooltip": "%s"}\n' "$text" "$tooltip"
