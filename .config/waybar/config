@@ -76,7 +76,7 @@
 		},
 		"memory": {
 			"tooltip": true,
-			"format": "<span color='#A630E6'>\ue266</span> {}%",
+			"format": "<span color='#B32EEA'>\ue266</span> {}%",
 			"interval": 1
 		},
 		"temperature": {
@@ -88,7 +88,7 @@
 			"interval": 1
 		},
 		"custom/netspeed": {
-			"exec": "~/.config/waybar/scripts/netspeed.sh",
+			"exec": "~/scripts/netspeed.sh",
 			"format": "{}",
 			"tooltip": true,
 			"return-type": "json"

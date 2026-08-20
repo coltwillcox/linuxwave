@@ -22,7 +22,7 @@ while :; do
 	if [ $upload_percentage -lt 0 ]; then upload_percentage=0; fi
 	if [ $upload_percentage -gt 100 ]; then upload_percentage=100; fi
 
-	text="<span color='#F222FF'>$download_icon</span>$download_percentage%$upload_percentage<span color='#A630E6'>$upload_icon</span>"
+	text="<span color='#F222FF'>$download_icon</span>$download_percentage%$upload_percentage<span color='#B32EEA'>$upload_icon</span>"
 	tooltip="$download_icon$array[1] $upload_icon$array[2]"
 
 	printf '{"text": "%s", "tooltip": "%s"}\n' "$text" "$tooltip"
