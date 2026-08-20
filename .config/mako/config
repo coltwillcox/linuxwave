@@ -1,6 +1,6 @@
 font=Victor Mono SemiBold 13
-background-color=#161925
-text-color=#ffd318
+background-color=#000000
+text-color=#00FF00
 width=350
 height=100
 progress-color=over #eceff480
@@ -10,11 +10,9 @@ layer=overlay
 format=<b>%a</b>\n%s
 border-size=1
 border-radius=0
-border-color=#743ad5
+border-color=#743AD5
 default-timeout=5000
 output=DP-2
-anchor=top-right
+anchor=top-center
 outer-margin=10
-
-[urgency=high]
 ignore-timeout=1
