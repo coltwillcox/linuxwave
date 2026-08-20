@@ -88,7 +88,7 @@
 			"interval": 1
 		},
 		"custom/netspeed": {
-			"exec": "~/scripts/netspeed.sh",
+			"exec": "~/.config/waybar/scripts/netspeed.sh",
 			"format": "{}",
 			"tooltip": true,
 			"return-type": "json"

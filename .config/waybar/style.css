@@ -2,8 +2,7 @@
 @define-color color2 #743AD5;
 @define-color color3 #FFFFFF;
 @define-color color4 #000000;
-@define-color color5 #FFD318;
-@define-color color7 #F222FF;
+@define-color color5 #F222FF;
 
 * {
 	border: none;
@@ -61,7 +60,7 @@ window#waybar.empty #window {
 	color: @color1;
 	border: 1px solid;
 	border-image-slice: 1;
-	border-image-source: linear-gradient(to left, @color2, @color7, @color2);
+	border-image-source: linear-gradient(to left, @color2, @color5, @color2);
 	transition:
 		background,
 		border 0.3s;
@@ -177,7 +176,7 @@ tooltip label {
 	margin-top: 8px;
 	padding: 6px 16px;
 	border: 1px solid @color2;
-	color: @color7;
+	color: @color5;
 	background: @color4;
 }
 
