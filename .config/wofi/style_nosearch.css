@@ -1,11 +1,11 @@
 @define-color base1 #0c0e14;
 @define-color base2 #40455;
 @define-color font1 #f222ff;
-@define-color font2 #ffd318;
+@define-color font2 #00FF00;
 @define-color font3 #eeeeff;
 @define-color border #743ad5;
 @define-color shadow #fc199a;
-@define-color background #161925;
+@define-color background #000000;
 @define-color backgroundselected #2c3345;
 
 * {
@@ -58,7 +58,7 @@ window {
 }
 
 #entry:selected {
-	background-color: @backgroundselected;
+	background-color: @base1;
 	border: 1px solid @border;
 }
 
