@@ -8,6 +8,45 @@
 
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 
+### Dependencies
+
+Session:
+
+-   `hyprland`, `hyprlock`, `hypridle`, `hyprpaper` — compositor, lock, idle daemon, wallpaper.
+-   `uwsm` — session manager. Everything is autostarted with `uwsm app --`, and the power menu logs out with `uwsm stop`.
+-   `waybar`, `wofi`, `mako`, `kitty`.
+
+Used by keybindings and Waybar modules:
+
+-   `grimblast` — screenshots (Print, SUPER + SHIFT + S).
+-   `cliphist` + `wl-clipboard` — clipboard history (SUPER + V). Both `wl-paste --watch` instances are autostarted from `hyprland.lua`.
+-   `playerctl` — media keys.
+-   `wireplumber` — volume keys and the Waybar volume module.
+-   `pavucontrol` — opened by clicking the Waybar volume module.
+-   `network-manager-applet` — tray applet.
+-   `dolphin` — file manager (SUPER + E).
+-   `cava` — Waybar audio visualizer.
+-   `dool` and `coreutils` — used by `netspeed.sh`.
+-   `zsh` and `python` — the shipped scripts.
+
+Fonts:
+
+-   Victor Mono — used everywhere. https://rubjo.github.io/victor-mono/
+-   A Nerd Font for the glyph icons in Waybar, Wofi and the power menu, e.g. `ttf-hack-nerd`. Powerlevel10k additionally expects MesloLGS NF (`ttf-meslo-nerd-font-powerlevel10k`).
+-   bargraph — used by the Waybar cava modules. Not packaged, install the TTF manually. CC BY-SA, by paul hunt: https://fontstruct.com/fontstructions/show/37128/bargraph
+
+Themes:
+
+-   `candy-icons` — Mako `icon-path`. https://github.com/EliverLara/candy-icons
+-   `bibata-rainbow-cursor-theme` — `XCURSOR_THEME` is set to `Bibata-Rainbow-Modern`.
+-   `qt6ct` — `QT_QPA_PLATFORMTHEME`.
+
+Optional:
+
+-   hackerminal — runs behind the lock screen. `lock-hack.sh` expects it at `/opt/bin/hackerminal`. https://github.com/coltwillcox/hackerminal
+
+![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
+
 ### Hyprland <sup>.config/hypr/</sup>
 
 Info:
@@ -51,7 +90,7 @@ Info:
 
 Screens:
 
--   With sweet-icons theme:
+-   With candy-icons theme:
 
     <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-waybar-0.png" width="250">
 
@@ -121,7 +160,7 @@ Info:
 
 Screens:
 
--   With sweet-icons theme:
+-   With candy-icons theme:
 
     <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-mako-0.png" width="200">
 
