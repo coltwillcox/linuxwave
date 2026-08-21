@@ -1,3 +1,3 @@
-#!/usr/bin/zsh
+#!/usr/bin/env zsh
 
-pgrep -f khackerminal || /sbin/kitty --class=khackerminal /opt/bin/hackerminal -t & /sbin/hyprlock && pkill -f khackerminal
+pgrep -f khackerminal || /usr/bin/kitty --class=khackerminal /opt/bin/hackerminal -t & /usr/bin/hyprlock && pkill -f khackerminal

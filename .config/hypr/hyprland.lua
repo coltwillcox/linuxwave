@@ -33,8 +33,8 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("/usr/bin/uwsm app -- /usr/bin/nm-applet")
     hl.exec_cmd("/usr/bin/uwsm app -- /usr/bin/hypridle")
     hl.exec_cmd("/usr/bin/uwsm app -- ~/.config/hypr/scripts/lock-hack.sh")
-    hl.exec_cmd("/usr/bin/uwsm app -- /bin/wl-paste --type text --watch cliphist store")
-    hl.exec_cmd("/usr/bin/uwsm app -- /bin/wl-paste --type image --watch cliphist store")
+    hl.exec_cmd("/usr/bin/uwsm app -- /usr/bin/wl-paste --type text --watch cliphist store")
+    hl.exec_cmd("/usr/bin/uwsm app -- /usr/bin/wl-paste --type image --watch cliphist store")
 end)
 
 -----------------------
@@ -260,7 +260,7 @@ hl.bind(mainMod .. " + T",      hl.dsp.exec_cmd(powermenu))
 hl.bind("CTRL + ALT + Delete",  hl.dsp.exec_cmd(powermenu))
 hl.bind(mainMod .. " + O",      hl.dsp.exec_cmd("~/.config/hypr/scripts/open-all.sh"))
 hl.bind(mainMod .. " + K",      hl.dsp.exec_cmd("~/.config/hypr/scripts/kill-all.sh"))
-hl.bind(mainMod .. " + V",      hl.dsp.exec_cmd("/bin/cliphist list | /bin/wofi -a -c ~/.config/wofi/config -I -o DP-2 -W 400 -b -d | /bin/cliphist decode | /bin/xargs -r /bin/wl-copy"))
+hl.bind(mainMod .. " + V",      hl.dsp.exec_cmd("/usr/bin/cliphist list | /usr/bin/wofi -a -c ~/.config/wofi/config -I -o DP-2 -W 400 -b -d | /usr/bin/cliphist decode | /usr/bin/xargs -r /usr/bin/wl-copy"))
 
 -- Screenshots
 hl.bind("Print",                             hl.dsp.exec_cmd("grimblast --notify --freeze save"))

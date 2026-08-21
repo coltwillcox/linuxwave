@@ -1,0 +1,8 @@
+# Editor and OS scratch files
+*~
+*.swp
+*.swo
+.DS_Store
+
+# Zsh compiled completion cache
+.zcompdump*

@@ -92,7 +92,7 @@
 			"return-type": "json"
 		},
 		"wireplumber": {
-			"on-click": "pavucontrol",
+			"on-click": "uwsm app -- pavucontrol",
 			"on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
 			"tooltip": true,
 			"tooltip-format": "{volume}%",

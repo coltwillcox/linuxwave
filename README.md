@@ -150,7 +150,7 @@ Links:
 Edit:
 
 -   File `.config/wofi/scripts/power.py`, change `DP-2` to correct monitor/output. Find output info with command: `hyprctl monitors'`
--   File `.config/wofi/scripts/power.py` optionally uncomment `Hibernate` lines.
+-   File `.config/wofi/scripts/power.py` optionally uncomment `Hibernate` lines. Also bump `lines` in `.config/wofi/config_nosearch` to match the number of entries, otherwise the menu scrolls instead of showing them all.
 
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 
