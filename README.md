@@ -121,7 +121,7 @@ Screens:
 
 -   Visualizer in Waybar, on both sides of the window title:
 
-    <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-waybar-0.png" width="250">
+    <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-cava-0.png" width="250">
 
 Links:
 
