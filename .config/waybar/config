@@ -55,9 +55,9 @@
 			}
 		},
 		"custom/cavaleft": {
-			"exec": "cava -p ~/.config/cava/configleft | sed -u 's/;//g' | awk 'BEGIN{OFS=\"\"}{n=length($0);out=\"\";for(i=1;i<=n;i++){t=(n>1)?(i-1)/(n-1):0;r=int(116+t*(242-116));g=int(58+t*(34-58));b=int(213+t*(255-213));out=out sprintf(\"<span color=\\\"#%02x%02x%02x\\\">%s</span>\",r,g,b,substr($0,i,1))};print out;fflush()}'",
-    		"tooltip": false,
-    		"escape": false
+			"exec": "~/.config/waybar/scripts/cava.sh ~/.config/cava/configleft '#743ad5' '#f222ff'",
+			"tooltip": false,
+			"escape": false
 		},
 		"hyprland/window": {
 			"format": "{title}",
@@ -65,9 +65,9 @@
 			"all-outputs": true
 		},
 		"custom/cavaright": {
-			"exec": "cava -p ~/.config/cava/configright | sed -u 's/;//g' | awk 'BEGIN{OFS=\"\"}{n=length($0);out=\"\";for(i=1;i<=n;i++){t=(n>1)?(i-1)/(n-1):0;r=int(242+t*(116-242));g=int(34+t*(58-34));b=int(255+t*(213-255));out=out sprintf(\"<span color=\\\"#%02x%02x%02x\\\">%s</span>\",r,g,b,substr($0,i,1))};print out;fflush()}'",
-    		"tooltip": false,
-    		"escape": false
+			"exec": "~/.config/waybar/scripts/cava.sh ~/.config/cava/configright '#f222ff' '#743ad5'",
+			"tooltip": false,
+			"escape": false
 		},
 		"cpu": {
 			"tooltip": true,

@@ -115,6 +115,10 @@ button.vivaldi {
 	border: unset !important;
 }
 
+#panels-container.right {
+	display: none !important;
+}
+
 /* ---------- 4. Mainbar + top New Tab button ------------------------------ */
 
 /* NewTab is first in toolbars.navigation. Sizing it to the tab bar width makes

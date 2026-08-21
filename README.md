@@ -114,7 +114,7 @@ Edit:
 Info:
 
 -   Two configs, `configleft` and `configright`, feeding the `custom/cavaleft` and `custom/cavaright` Waybar modules. They are identical except for the channel each one takes and the direction the bars are drawn in.
--   Output is `raw` ascii, so cava only emits bar heights. The purple to pink gradient is applied per character by the awk pipeline in `.config/waybar/config`, which is why the `[color]` section of the config is commented out.
+-   Output is `raw` ascii, so cava only emits bar heights. The purple to pink gradient is applied per character by `.config/waybar/scripts/cava.sh`, which is why the `[color]` section of the config is commented out. Both Waybar modules run that script, passing their cava config and the two gradient colors, and the right side passes them in reverse so the gradient runs outwards on both sides.
 -   Bars are drawn with the bargraph font, see Dependencies.
 
 Screens:
@@ -131,6 +131,7 @@ Links:
 Edit:
 
 -   Files `.config/cava/configleft` and `.config/cava/configright`, `bars` sets how many characters wide each side is, and `noise_reduction` how much the bars are smoothed, on a scale of 0 to 100.
+-   File `.config/waybar/config`, the two colors passed to `cava.sh` in the `custom/cavaleft` and `custom/cavaright` modules set the ends of the gradient.
 
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 
