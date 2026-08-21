@@ -182,7 +182,7 @@ Info:
 
 Screens:
 
--   With kitty default theme (0.5 transparency):
+-   With kitty theme:
 
     <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-kitty-0.png" height="150">
 
