@@ -80,10 +80,8 @@
 			"interval": 1
 		},
 		"temperature": {
-			"thermal-zone": 0,
-			"hwmon-path": [
-				"/sys/class/hwmon/hwmon2/temp1_input"
-			],
+			"hwmon-path-abs": "/sys/devices/pci0000:00/0000:00:18.3/hwmon",
+			"input-filename": "temp1_input",
 			"format": "<span color='#F222FF'>\udb81\udd0f</span>{temperatureC}\udb81\udd04",
 			"interval": 1
 		},

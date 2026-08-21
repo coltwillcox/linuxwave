@@ -103,7 +103,8 @@ Links:
 
 Edit:
 
--   File `.config/waybar/config`, change `DP-2` to correct monitor/output. Find output info with command: `hyprctl monitors'`
+-   File `.config/waybar/config`, change `DP-2` to correct monitor/output. Find output info with command: `hyprctl monitors`.
+-   File `.config/waybar/config`, change `hwmon-path-abs` to your own temperature sensor. Find the right `hwmonN` with `grep . /sys/class/hwmon/hwmon*/name`, then get its stable path with `dirname $(readlink -f /sys/class/hwmon/hwmonN)`. The `/sys/class/hwmon/hwmonN` numbering is not stable across boots, so the absolute device path is used instead.
 
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 
