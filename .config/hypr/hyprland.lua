@@ -33,6 +33,8 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("/usr/bin/uwsm app -- /usr/bin/nm-applet")
     hl.exec_cmd("/usr/bin/uwsm app -- /usr/bin/hypridle")
     hl.exec_cmd("/usr/bin/uwsm app -- ~/.config/hypr/scripts/lock-hack.sh")
+    hl.exec_cmd("/usr/bin/uwsm app -- /bin/wl-paste --type text --watch cliphist store")
+    hl.exec_cmd("/usr/bin/uwsm app -- /bin/wl-paste --type image --watch cliphist store")
 end)
 
 -----------------------
