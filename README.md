@@ -92,7 +92,7 @@ Screens:
 
 -   With candy-icons theme:
 
-    <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-waybar-0.png" width="250">
+    <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-waybar-0.png" width="800">
 
 Links:
 
@@ -121,7 +121,7 @@ Screens:
 
 -   Visualizer in Waybar, on both sides of the window title:
 
-    <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-cava-0.png" width="250">
+    <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-cava-0.png" width="600">
 
 Links:
 
@@ -168,7 +168,7 @@ Screens:
 
 -   Applications and power menu:
 
-    <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-wofi-0.png" height="150"> <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-wofi-1.png" height="150">
+    <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-wofi-0.png" height="320"> <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-wofi-1.png" height="190">
 
 Links:
 
@@ -191,7 +191,7 @@ Screens:
 
 -   With candy-icons theme:
 
-    <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-mako-0.png" width="200">
+    <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-mako-0.png" width="420">
 
 Links:
 
