@@ -109,15 +109,41 @@ Edit:
 
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 
+### Cava <sup>.config/cava/</sup>
+
+Info:
+
+-   Two configs, `configleft` and `configright`, feeding the `custom/cavaleft` and `custom/cavaright` Waybar modules. They are identical except for the channel each one takes and the direction the bars are drawn in.
+-   Output is `raw` ascii, so cava only emits bar heights. The purple to pink gradient is applied per character by the awk pipeline in `.config/waybar/config`, which is why the `[color]` section of the config is commented out.
+-   Bars are drawn with the bargraph font, see Dependencies.
+
+Screens:
+
+-   Visualizer in Waybar, on both sides of the window title:
+
+    <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-waybar-0.png" width="250">
+
+Links:
+
+-   Cava: https://github.com/karlstav/cava
+-   bargraph font: https://fontstruct.com/fontstructions/show/37128/bargraph
+
+Edit:
+
+-   Files `.config/cava/configleft` and `.config/cava/configright`, `bars` sets how many characters wide each side is, and `noise_reduction` how much the bars are smoothed, on a scale of 0 to 100.
+
+![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
+
 ### Kitty <sup>.config/kitty/</sup>
 
 Info:
 
--   Kitty theme (with additional themes for full transparency and full opaqueness).
+-   Kitty theme, opaque black background with green foreground, Victor Mono font.
+-   File `diff.conf` holds the color scheme used by `kitty +kitten diff`.
 
 Screens:
 
--   Default theme with 0.5 transparency:
+-   Kitty with Powerlevel10k prompt:
 
     <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-kitty-0.png" height="150">
 
@@ -217,5 +243,29 @@ Links:
 Edit:
 
 -   Copy \*.css files from profile or profile-vertical folder, depending on screen orientation.
+
+![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
+
+### Vivaldi <sup>.config/vivaldi/</sup>
+
+Info:
+
+-   Vivaldi CSS customizations and a matching theme, covering the tab strip, address bar, find bar, menus, tooltips and toolbar icons.
+
+Screens:
+
+-   With Synthwave theme and CSS:
+
+    <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-vivaldi-0.png" height="150">
+
+Links:
+
+-   Vivaldi: https://vivaldi.com
+
+Edit:
+
+-   Copy `CSS/synthwave.css` somewhere, then point Settings > Appearance > Custom UI Modifications at the folder holding it.
+-   Import `themes/synthwave.zip` from Settings > Themes.
+-   File `CSS/synthwave.css`, keep `--tabbar-width` equal to `vivaldi.tabs.bar.width` in `Default/Preferences`. Drag-resizing the tab bar rewrites the preference but not the CSS, and the address bar then stops lining up with the page.
 
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
