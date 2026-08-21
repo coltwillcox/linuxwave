@@ -26,7 +26,7 @@ Used by keybindings and Waybar modules:
 -   `network-manager-applet` - tray applet.
 -   `dolphin` - file manager (SUPER + E).
 -   `cava` - Waybar audio visualizer.
--   `dool` and `coreutils` - used by `netspeed.sh`.
+-   `dool`, `iproute2` and `coreutils` - used by `netspeed.sh`.
 -   `zsh` and `python` - the shipped scripts.
 
 Fonts:
@@ -105,6 +105,7 @@ Edit:
 
 -   File `.config/waybar/config`, change `DP-2` to correct monitor/output. Find output info with command: `hyprctl monitors`.
 -   File `.config/waybar/config`, change `hwmon-path-abs` to your own temperature sensor. Find the right `hwmonN` with `grep . /sys/class/hwmon/hwmon*/name`, then get its stable path with `dirname $(readlink -f /sys/class/hwmon/hwmonN)`. The `/sys/class/hwmon/hwmonN` numbering is not stable across boots, so the absolute device path is used instead.
+-   File `.config/waybar/scripts/netspeed.sh`, set `max_download` and `max_upload` to your own link or plan speed, they are only the scale of the displayed percentages. The interface is auto-detected from the default route, set `interface` if you want to pin it to a specific one.
 
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 
