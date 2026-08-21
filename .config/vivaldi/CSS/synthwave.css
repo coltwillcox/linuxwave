@@ -398,15 +398,37 @@ button.vivaldi {
 	border-style: solid !important;
 }
 
+/* The menu button (V logo or hamburger, per vivaldi.menu.icon) is a bare
+   <button class="vivaldi"> — not wrapped in .button-toolbar, so the two rules
+   above miss it. common.css gives it `border: none` and a --colorBgDark hover
+   fill; both have to be replaced for it to match the rest of the toolbar. */
+button.vivaldi {
+	border: 1px solid transparent !important;
+	background-color: transparent !important;
+}
+
+/* 0,2,1 — outranks the shorthand above, which would otherwise reset
+   border-image to none. */
+button.vivaldi:hover,
+button.vivaldi:focus-visible {
+	background-color: #000000 !important;
+	border-image: var(--accgrad) 1 !important;
+	border-width: 1px !important;
+	border-style: solid !important;
+}
+
 /* Recolour via `color`, NEVER `fill`. Vivaldi's icons are outlines: 67 of the
    69 in resources/theme/vivaldi/ carry fill="none" and stroke="currentColor".
    A CSS `fill` outranks that presentation attribute and inherits into the
    children, flooding every outline solid — that is what filled the Settings
    gear and the Reload arc. `color` drives fill and stroke alike and leaves
-   fill="none" intact. */
+   fill="none" intact. The menu button's burger/V glyphs are inline in
+   bundle.js with no fill attribute at all, so they take the `fill: currentColor`
+   that #browser sets — `color` reaches those too. */
 .button-toolbar svg,
 .UrlBar-AddressField svg,
-.find-in-page svg {
+.find-in-page svg,
+button.vivaldi svg {
 	color: var(--acc2) !important;
 }
 
