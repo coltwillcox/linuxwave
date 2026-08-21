@@ -12,15 +12,16 @@
 
 Info:
 
--   Will use hypridle to lock with `~/.config/hypr/scripts/lock-slow.sh` after 300 seconds of inactivity.
--   Will use hyprlock to instantly lock with `~/.config/hypr/scripts/lock-fast.sh` on SUPER + L keypress.
--   When screen is locked, asciiquarium will be run, and closed when unlocked.
--   Hyprlock config will blur screen, except asciiquarium area and screen borders.
+-   Desktop starts locked: `~/.config/hypr/scripts/lock-hack.sh` is run on Hyprland startup, so the session comes up locked and needs a password before use.
+-   Will use hypridle to lock with `~/.config/hypr/scripts/lock-hack.sh` after 300 seconds of inactivity, and before sleep. Screens are turned off after 360 seconds.
+-   Will use hyprlock to instantly lock with `~/.config/hypr/scripts/lock-hack.sh` on SUPER + L keypress.
+-   When screen is locked, hackerminal will be run in a pinned kitty window (class `khackerminal`), and closed when unlocked.
+-   Hyprland runs with `session_lock_xray`, so the desktop stays visible behind the lock surface and hackerminal shows through it.
 -   Will use hyprpaper to set wallpaper.
 
 Screens:
 
--   Hyprlock with asciiquarium:
+-   Hyprlock with hackerminal:
 
     <img src="https://raw.githubusercontent.com/coltwillcox/linuxwave/master/pictures/screen-hyprlock-0.png" height="150">
 
@@ -31,14 +32,14 @@ Links:
 -   Hypridle: https://github.com/hyprwm/hypridle
 -   Hyprpaper: https://github.com/hyprwm/hyprpaper
 -   Candy icons: https://github.com/EliverLara/candy-icons
--   Asciiquarium: https://github.com/nothub/asciiquarium
+-   Hackerminal: https://github.com/coltwillcox/hackerminal
 -   VS Code synthwave: https://marketplace.visualstudio.com/items?itemName=coltwillcox.synthwave-x-fluoromachine-contrast
 
 Edit:
 
--   File `.config/hypr/hyprland`, change `DP-2` to correct monitor/output. Find output info with command: `hyprctl monitors'`.
--   File `.config/hypr/hyprpaper`, change `DP-2` to correct monitor/output. Find output info with command: `hyprctl monitors'`.
--   Files `.config/hypr/hyprlock` and `.config/hypr/hyprlock-slow`, change `DP-2` to correct monitor/output. Find output info with command: `hyprctl monitors'`.
+-   File `.config/hypr/hyprland.lua`, change `DP-2` to correct monitor/output. Find output info with command: `hyprctl monitors`.
+-   File `.config/hypr/hyprpaper.conf`, change `DP-2` to correct monitor/output. Find output info with command: `hyprctl monitors`.
+-   File `.config/hypr/hyprlock.conf`, change `DP-2` to correct monitor/output. Find output info with command: `hyprctl monitors`.
 
 ![#9963ff](https://placehold.co/800x15/9963ff/9963ff.png)
 
