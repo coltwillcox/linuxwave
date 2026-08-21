@@ -162,33 +162,32 @@ end
 ----------------------
 
 -- Workspace assignments
-hl.window_rule({ match = { class = "^(zen-left)$" },                     workspace = "1" })
-hl.window_rule({ match = { class = "^(Postman)$" },                      workspace = "2" })
-hl.window_rule({ match = { class = "^(tixati)$" },                       workspace = "3" })
-hl.window_rule({ match = { class = "^(org.qbittorrent.qBittorrent)$" },  workspace = "3" })
-hl.window_rule({ match = { class = "^(doublecmd)$" },                    workspace = "4" })
-hl.window_rule({ match = { class = "^(org.kde.krusader)$" },             workspace = "4" })
-hl.window_rule({ match = { class = "^(org.kde.dolphin)$" },              workspace = "4" })
-hl.window_rule({ match = { class = "^(pcloud)$" },                       workspace = "4", float = true, center = true })
-hl.window_rule({ match = { class = "^(firefox)$" },                      workspace = "5" })
-hl.window_rule({ match = { class = "^(zen)$" },                          workspace = "5" })
-hl.window_rule({ match = { class = "^(zen-beta)$" },                     workspace = "5" })
-hl.window_rule({ match = { class = "^(zen-main)$" },                     workspace = "5" })
-hl.window_rule({ match = { class = "^(brave-browser)$" },                workspace = "6" })
-hl.window_rule({ match = { class = "^(vivaldi-stable)$" },               workspace = "6" })
-hl.window_rule({ match = { class = "^(VSCodium)$" },                     workspace = "7" })
-hl.window_rule({ match = { class = "^(codium-url-handler)$" },           workspace = "7" })
-hl.window_rule({ match = { class = "^(codium)$" },                       workspace = "7" })
-hl.window_rule({ match = { class = "^(steam)$" },                        workspace = "7" })
-hl.window_rule({ match = { class = "^(steam_app_1174180)$" },            workspace = "7", fullscreen = true })
-hl.window_rule({ match = { class = "^(smplayer)$" },                     workspace = "7" })
-hl.window_rule({ match = { class = "^(gimp-3.0)$" },                     workspace = "7" })
-hl.window_rule({ match = { class = "^(gimp)$" },                         workspace = "7" })
-hl.window_rule({ match = { class = "^(org.nomacs.ImageLounge)$" },       workspace = "7" })
-hl.window_rule({ match = { class = "^(org.bleachbit.BleachBit)$" },      workspace = "7" })
-hl.window_rule({ match = { class = "^(es-de)$" },                        workspace = "7", fullscreen = true })
+hl.window_rule({ match = { class = "^(zen-left)$" },                        workspace = "1" })
+hl.window_rule({ match = { class = "^(Postman)$" },                         workspace = "2" })
+hl.window_rule({ match = { class = "^(tixati)$" },                          workspace = "3" })
+hl.window_rule({ match = { class = "^(org\\.qbittorrent\\.qBittorrent)$" }, workspace = "3" })
+hl.window_rule({ match = { class = "^(doublecmd)$" },                       workspace = "4" })
+hl.window_rule({ match = { class = "^(org\\.kde\\.krusader)$" },            workspace = "4" })
+hl.window_rule({ match = { class = "^(org\\.kde\\.dolphin)$" },             workspace = "4" })
+hl.window_rule({ match = { class = "^(pcloud)$" },                          workspace = "4", float = true, center = true })
+hl.window_rule({ match = { class = "^(firefox)$" },                         workspace = "5" })
+hl.window_rule({ match = { class = "^(zen)$" },                             workspace = "5" })
+hl.window_rule({ match = { class = "^(zen-beta)$" },                        workspace = "5" })
+hl.window_rule({ match = { class = "^(zen-main)$" },                        workspace = "5" })
+hl.window_rule({ match = { class = "^(brave-browser)$" },                   workspace = "6" })
+hl.window_rule({ match = { class = "^(vivaldi-stable)$" },                  workspace = "6" })
+hl.window_rule({ match = { class = "^(VSCodium)$" },                        workspace = "7" })
+hl.window_rule({ match = { class = "^(codium-url-handler)$" },              workspace = "7" })
+hl.window_rule({ match = { class = "^(codium)$" },                          workspace = "7" })
+hl.window_rule({ match = { class = "^(steam)$" },                           workspace = "7" })
+hl.window_rule({ match = { class = "^(steam_app_1174180)$" },               workspace = "7", fullscreen = true })
+hl.window_rule({ match = { class = "^(smplayer)$" },                        workspace = "7" })
+hl.window_rule({ match = { class = "^([Gg]imp-?[0-9.]*)$" },                 workspace = "7" })
+hl.window_rule({ match = { class = "^(org\\.nomacs\\.ImageLounge)$" },      workspace = "7" })
+hl.window_rule({ match = { class = "^(org\\.bleachbit\\.BleachBit)$" },     workspace = "7" })
+hl.window_rule({ match = { class = "^(es-de)$" },                           workspace = "7", fullscreen = true })
 hl.window_rule({
-    match     = { class = "^(com.libretro.RetroArch)$" },
+    match     = { class = "^(com\\.libretro\\.RetroArch)$" },
     workspace = "7",
     float     = true,
     move      = { 0, 0 },
@@ -196,22 +195,22 @@ hl.window_rule({
     decorate  = false,
     no_anim   = true,
 })
-hl.window_rule({ match = { class = "^(org.shotcut.Shotcut)$" },          workspace = "7" })
-hl.window_rule({ match = { class = "^(kmicro)$" },                       workspace = "9" })
-hl.window_rule({ match = { class = "^(kitty)$" },                        workspace = "8" })
-hl.window_rule({ match = { class = "^(Slack)$" },                        workspace = "9" })
-hl.window_rule({ match = { class = "^(thunderbird)$" },                  workspace = "9" })
-hl.window_rule({ match = { class = "^(com.viber.Viber)$" },              workspace = "10" })
-hl.window_rule({ match = { class = "^(viber)$" },                        workspace = "10" })
-hl.window_rule({ match = { class = "^(org.telegram.desktop)$" },         workspace = "10" })
-hl.window_rule({ match = { class = "^(com.ayugram.desktop)$" },          workspace = "10" })
+hl.window_rule({ match = { class = "^(org\\.shotcut\\.Shotcut)$" },         workspace = "7" })
+hl.window_rule({ match = { class = "^(kmicro)$" },                          workspace = "9" })
+hl.window_rule({ match = { class = "^(kitty)$" },                           workspace = "8" })
+hl.window_rule({ match = { class = "^(Slack)$" },                           workspace = "9" })
+hl.window_rule({ match = { class = "^(thunderbird)$" },                     workspace = "9" })
+hl.window_rule({ match = { class = "^(com\\.viber\\.Viber)$" },             workspace = "10" })
+hl.window_rule({ match = { class = "^(viber)$" },                           workspace = "10" })
+hl.window_rule({ match = { class = "^(org\\.telegram\\.desktop)$" },        workspace = "10" })
+hl.window_rule({ match = { class = "^(com\\.ayugram\\.desktop)$" },         workspace = "10" })
 
 -- Wofi rules
 hl.window_rule({ match = { class = "^(wofi)$" }, monitor = "DP-2", pin = true })
 
 -- Floating window rules
 hl.window_rule({
-    match = { class = "^(org.pulseaudio.pavucontrol)$" },
+    match = { class = "^(org\\.pulseaudio\\.pavucontrol)$" },
     float = true,
     size  = { "monitor_w*0.5", "monitor_h*0.5" },
 })
@@ -222,7 +221,7 @@ for _, zenClass in ipairs({ "^(zen-left)$", "^(zen)$", "^(zen-beta)$", "^(zen-ma
 end
 
 hl.window_rule({ match = { class = "^(thunderbird)$", initial_title = "^(Message Filters)$" }, float = true })
-hl.window_rule({ match = { class = "^(file-)$",       initial_title = "^(Export Image as)$" }, float = true })
+hl.window_rule({ match = { class = "^(file-.*)$",     initial_title = "^(Export Image as .*)$" }, float = true })
 
 for _, krusaderTitle in ipairs({
     "^(Pack — Krusader)$",
@@ -231,7 +230,7 @@ for _, krusaderTitle in ipairs({
     "^(Copying — Krusader)$",
     "^(Creating directory — Krusader)$",
 }) do
-    hl.window_rule({ match = { class = "^(org.kde.krusader)$", title = krusaderTitle }, float = true })
+    hl.window_rule({ match = { class = "^(org\\.kde\\.krusader)$", title = krusaderTitle }, float = true })
 end
 
 -- Khackerminal rules
